@@ -1,7 +1,7 @@
 #ifndef XMLELEMENT_H
 #define XMLEMENT_H
 
-#include <list>
+#include <vector>
 #include <string>
 #include "xmlNode.h"
 
@@ -16,31 +16,31 @@ class xmlElement : public xmlNode {
 	private:
 	
 	string name;
-	list<attribute> att;
+	vector<attribute*> att;
 	int childElementCount;
-	list<xmlNode*> childNode;
-	list<xmlElement*> childElement;
-	xmlElement * owner;
+	vector<xmlNode*> childNode;
+	vector<xmlElement*> childElement;
 	xmlElement * parentElement;
 
 	public:
 
-	xmlElement(string name, xmlElement * owner, xmlElement * parentElement);
+	xmlElement(string name);
 	~xmlElement();
 	
 	string getName();
-	list<attribute> getAllAttributes();
+	vector<attribute*> getAllAttributes();
 	attribute * getAttribute(int i);
 	int getChildElementCount();
-	list<xmlNode*> getAllChildNode();
+	vector<xmlNode*> getAllChildNode();
 	xmlNode* getChildNode(int i);
-	list<xmlElement*> getAllChildElement();
+	vector<xmlElement*> getAllChildElement();
 	xmlElement * getChildElement(int i);
-	xmlElement * getOwner();
 	xmlElement * getParent();
 
-	void addAttribute(attribute att);
-	void addXmlNode(xmlNode * node);
+	void setParent(xmlElement * elParent);
+
+	void addAttribute(attribute * elAtt);
+	void addXmlNode(xmlNode * elNode);
 
 };
 
