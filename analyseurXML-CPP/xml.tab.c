@@ -113,6 +113,7 @@ using namespace std;
 #include "commun.h"
 #include "xmlElement.h"
 #include "xmlText.h"
+#include <string>
 
 int yywrap(void);
 void yyerror(char *msg);
@@ -143,13 +144,13 @@ xmlElement * current;
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 18 "xml.y"
+#line 19 "xml.y"
 {
    char * s;
    ElementName * en;  /* le nom d'un element avec son namespace */
 }
 /* Line 193 of yacc.c.  */
-#line 153 "xml.tab.c"
+#line 154 "xml.tab.c"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
@@ -162,7 +163,7 @@ typedef union YYSTYPE
 
 
 /* Line 216 of yacc.c.  */
-#line 166 "xml.tab.c"
+#line 167 "xml.tab.c"
 
 #ifdef short
 # undef short
@@ -377,16 +378,16 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  6
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   23
+#define YYLAST   30
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  19
 /* YYNNTS -- Number of nonterminals.  */
 #define YYNNTS  13
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  21
+#define YYNRULES  23
 /* YYNRULES -- Number of states.  */
-#define YYNSTATES  33
+#define YYNSTATES  37
 
 /* YYTRANSLATE(YYLEX) -- Bison symbol number corresponding to YYLEX.  */
 #define YYUNDEFTOK  2
@@ -434,8 +435,8 @@ static const yytype_uint8 yytranslate[] =
 static const yytype_uint8 yyprhs[] =
 {
        0,     0,     3,     7,    10,    11,    13,    15,    16,    22,
-      26,    28,    30,    33,    34,    38,    41,    44,    48,    51,
-      54,    57
+      26,    28,    30,    33,    34,    38,    42,    45,    48,    52,
+      56,    59,    62,    65
 };
 
 /* YYRHS -- A `-1'-separated list of the rules' RHS.  */
@@ -444,17 +445,18 @@ static const yytype_int8 yyrhs[] =
       20,     0,    -1,    23,    25,    21,    -1,    21,    22,    -1,
       -1,    11,    -1,    24,    -1,    -1,     7,    12,    12,     9,
        5,    -1,    26,    27,    29,    -1,    15,    -1,    14,    -1,
-      27,    28,    -1,    -1,    12,     3,     9,    -1,     4,     5,
-      -1,    30,     5,    -1,     5,    31,    17,    -1,    31,    10,
-      -1,    31,    22,    -1,    31,    25,    -1,    -1
+      27,    28,    -1,    -1,    12,     3,     9,    -1,    13,     3,
+       9,    -1,     4,     5,    -1,    30,     5,    -1,     5,    31,
+      17,    -1,     5,    31,    18,    -1,    31,    10,    -1,    31,
+      22,    -1,    31,    25,    -1,    -1
 };
 
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    30,    30,    33,    34,    37,    41,    42,    46,    50,
-      53,    68,    84,    85,    88,    97,   101,   107,   110,   115,
-     116,   117
+       0,    31,    31,    34,    35,    38,    42,    43,    47,    51,
+      54,    69,    85,    86,    89,    96,   105,   109,   115,   116,
+     119,   124,   125,   126
 };
 #endif
 
@@ -486,16 +488,16 @@ static const yytype_uint16 yytoknum[] =
 static const yytype_uint8 yyr1[] =
 {
        0,    19,    20,    21,    21,    22,    23,    23,    24,    25,
-      26,    26,    27,    27,    28,    29,    29,    30,    31,    31,
-      31,    31
+      26,    26,    27,    27,    28,    28,    29,    29,    30,    30,
+      31,    31,    31,    31
 };
 
 /* YYR2[YYN] -- Number of symbols composing right hand side of rule YYN.  */
 static const yytype_uint8 yyr2[] =
 {
        0,     2,     3,     2,     0,     1,     1,     0,     5,     3,
-       1,     1,     2,     0,     3,     2,     2,     3,     2,     2,
-       2,     0
+       1,     1,     2,     0,     3,     3,     2,     2,     3,     3,
+       2,     2,     2,     0
 };
 
 /* YYDEFACT[STATE-NAME] -- Default rule to reduce with in state
@@ -504,34 +506,34 @@ static const yytype_uint8 yyr2[] =
 static const yytype_uint8 yydefact[] =
 {
        7,     0,     0,     0,     6,     0,     1,    11,    10,     4,
-      13,     0,     2,     0,     0,     5,     3,     0,    21,     0,
-      12,     9,     0,     8,    15,     0,     0,    16,    18,    17,
-      19,    20,    14
+      13,     0,     2,     0,     0,     5,     3,     0,    23,     0,
+       0,    12,     9,     0,     8,    16,     0,     0,     0,    17,
+      20,    18,    19,    21,    22,    14,    15
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_int8 yydefgoto[] =
 {
-      -1,     2,    12,    16,     3,     4,     9,    10,    13,    20,
-      21,    22,    25
+      -1,     2,    12,    16,     3,     4,     9,    10,    13,    21,
+      22,    23,    26
 };
 
 /* YYPACT[STATE-NUM] -- Index in YYTABLE of the portion describing
    STATE-NUM.  */
-#define YYPACT_NINF -11
+#define YYPACT_NINF -13
 static const yytype_int8 yypact[] =
 {
-       3,    -1,    12,   -10,   -11,     1,   -11,   -11,   -11,   -11,
-     -11,     5,     4,    -4,    11,   -11,   -11,    13,   -11,    14,
-     -11,   -11,    15,   -11,   -11,    -8,    10,   -11,   -11,   -11,
-     -11,   -11,   -11
+      -3,    -7,     6,   -12,   -13,    -5,   -13,   -13,   -13,   -13,
+     -13,     3,     2,    -4,    11,   -13,   -13,    14,   -13,    17,
+      18,   -13,   -13,    19,   -13,   -13,     0,    13,    16,   -13,
+     -13,   -13,   -13,   -13,   -13,   -13,   -13
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-     -11,   -11,   -11,    -3,   -11,   -11,    -2,   -11,   -11,   -11,
-     -11,   -11,   -11
+     -13,   -13,   -13,     1,   -13,   -13,     4,   -13,   -13,   -13,
+     -13,   -13,   -13
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]].  What to do in state STATE-NUM.  If
@@ -541,16 +543,18 @@ static const yytype_int8 yypgoto[] =
 #define YYTABLE_NINF -1
 static const yytype_uint8 yytable[] =
 {
-      17,    18,    28,    15,     7,     8,     7,     8,    19,    29,
-       1,     5,     6,    11,    14,    15,    23,    26,    24,    32,
-      27,     0,    30,    31
+      17,    18,     7,     8,     1,     5,     6,    11,    19,    20,
+      30,    15,    14,    15,     7,     8,    24,    31,    32,    25,
+      27,    28,    35,     0,    29,    36,     0,    33,     0,     0,
+      34
 };
 
 static const yytype_int8 yycheck[] =
 {
-       4,     5,    10,    11,    14,    15,    14,    15,    12,    17,
-       7,    12,     0,    12,     9,    11,     5,     3,     5,     9,
-       5,    -1,    25,    25
+       4,     5,    14,    15,     7,    12,     0,    12,    12,    13,
+      10,    11,     9,    11,    14,    15,     5,    17,    18,     5,
+       3,     3,     9,    -1,     5,     9,    -1,    26,    -1,    -1,
+      26
 };
 
 /* YYSTOS[STATE-NUM] -- The (internal number of the) accessing
@@ -559,8 +563,8 @@ static const yytype_uint8 yystos[] =
 {
        0,     7,    20,    23,    24,    12,     0,    14,    15,    25,
       26,    12,    21,    27,     9,    11,    22,     4,     5,    12,
-      28,    29,    30,     5,     5,    31,     3,     5,    10,    17,
-      22,    25,     9
+      13,    28,    29,    30,     5,     5,    31,     3,     3,     5,
+      10,    17,    18,    22,    25,     9,     9
 };
 
 #define yyerrok		(yyerrstatus = 0)
@@ -1375,12 +1379,12 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 30 "xml.y"
+#line 31 "xml.y"
     {current = NULL;}
     break;
 
   case 10:
-#line 54 "xml.y"
+#line 55 "xml.y"
     {
  			if (current==NULL)
  		  	{
@@ -1397,7 +1401,7 @@ yyreduce:
     break;
 
   case 11:
-#line 69 "xml.y"
+#line 70 "xml.y"
     {
  			if (current==NULL)
  		  	{
@@ -1414,7 +1418,7 @@ yyreduce:
     break;
 
   case 14:
-#line 89 "xml.y"
+#line 90 "xml.y"
     {
  			attribute * newAtt = new attribute;
  			newAtt->id = (yyvsp[(1) - (3)].s);
@@ -1424,21 +1428,31 @@ yyreduce:
     break;
 
   case 15:
-#line 98 "xml.y"
+#line 97 "xml.y"
     {
- 			current=current->getParent();
- 		;}
+			attribute * newAtt = new attribute;
+			newAtt->id = (yyvsp[(1) - (3)].s);
+			newAtt->value = (yyvsp[(3) - (3)].s);
+			current->addAttribute(newAtt);
+		;}
     break;
 
   case 16:
-#line 102 "xml.y"
+#line 106 "xml.y"
     {
  			current=current->getParent();
  		;}
     break;
 
-  case 18:
-#line 111 "xml.y"
+  case 17:
+#line 110 "xml.y"
+    {
+ 			current=current->getParent();
+ 		;}
+    break;
+
+  case 20:
+#line 120 "xml.y"
     {
  			xmlText * newContent = new xmlText((yyvsp[(2) - (2)].s));
  			current->addXmlNode(newContent);
@@ -1447,7 +1461,7 @@ yyreduce:
 
 
 /* Line 1267 of yacc.c.  */
-#line 1451 "xml.tab.c"
+#line 1465 "xml.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1661,7 +1675,7 @@ yyreturn:
 }
 
 
-#line 119 "xml.y"
+#line 128 "xml.y"
 
 
 int main(int argc, char **argv)

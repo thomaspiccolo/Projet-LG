@@ -96,7 +96,10 @@ void xmlElement::addXmlNode(xmlNode * elNode)
 
 void xmlElement::display()
 {
-	cout << "<" << name ;
+	if (ns=="")
+		cout << "<" << name ;
+	else
+		cout << "<" << ns << ":" << name ;
 	if (att.size() > 0)
 		for (int i = 0 ; i < att.size() ; i++)
 			cout << " " << att[i]->id << "='" << att[i]->value << "'";
@@ -107,6 +110,9 @@ void xmlElement::display()
 		cout << ">" << endl;
 		for (int i = 0 ; i < childNode.size() ; i++)
 			childNode[i]->display();
-		cout << "</" << name << ">" << endl;
+		if (ns=="")
+			cout << "</" << name << ">" << endl;
+		else
+			cout << "</" << ns << ":" << name << ">" <<endl;
 	}
 }

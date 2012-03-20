@@ -4,6 +4,7 @@ using namespace std;
 #include "commun.h"
 #include "xmlElement.h"
 #include "xmlText.h"
+#include <string>
 
 int yywrap(void);
 void yyerror(char *msg);
@@ -92,6 +93,13 @@ attribute
  			newAtt->value = $3;
  			current->addAttribute(newAtt);
  		}
+ | NSIDENT EQ STRING
+		{
+			attribute * newAtt = new attribute;
+			newAtt->id = $1;
+			newAtt->value = $3;
+			current->addAttribute(newAtt);
+		}
  ;
 empty_or_content
  : SLASH CLOSE
@@ -104,7 +112,8 @@ empty_or_content
  		} 
  ;
 close_content_and_end
- : CLOSE content_opt END 
+ : CLOSE content_opt END
+ | CLOSE content_opt NSEND 
  ;
 content_opt 
  : content_opt DATA
