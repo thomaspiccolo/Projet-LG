@@ -80,7 +80,7 @@
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 12 "xml.y"
+#line 18 "xml.y"
 {
    char * s;
    ElementName * en;  /* le nom d'un element avec son namespace */

@@ -6,7 +6,8 @@ class xmlNode
 
 	public:
 	xmlNode();
-	virtual ~ xmlNode();	
+	virtual ~ xmlNode();
+	virtual void display();	
 };
 
 #endif

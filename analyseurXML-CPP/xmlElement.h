@@ -14,7 +14,7 @@ typedef struct attribute{
 
 class xmlElement : public xmlNode {
 	private:
-	
+	string ns;
 	string name;
 	vector<attribute*> att;
 	int childElementCount;
@@ -25,6 +25,7 @@ class xmlElement : public xmlNode {
 	public:
 
 	xmlElement(string name);
+	xmlElement(string name, string ns);
 	~xmlElement();
 	
 	string getName();
@@ -41,7 +42,7 @@ class xmlElement : public xmlNode {
 
 	void addAttribute(attribute * elAtt);
 	void addXmlNode(xmlNode * elNode);
-
+	void display();
 };
 
 #endif

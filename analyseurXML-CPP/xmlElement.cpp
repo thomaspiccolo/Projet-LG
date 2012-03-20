@@ -1,6 +1,7 @@
 #include "xmlElement.h"
 #include <list>
 #include <typeinfo>
+#include <iostream>
 
 using namespace std;	
 
@@ -8,6 +9,14 @@ using namespace std;
 xmlElement::xmlElement(string elName)
 {
 	name = elName;
+	ns = "";
+	parentElement = NULL;
+	childElementCount = 0;
+}
+xmlElement::xmlElement(string elName, string elNS)
+{
+	name = elName;
+	ns = elNS;
 	parentElement = NULL;
 	childElementCount = 0;
 }
@@ -85,3 +94,19 @@ void xmlElement::addXmlNode(xmlNode * elNode)
 	}
 }
 
+void xmlElement::display()
+{
+	cout << "<" << name ;
+	if (att.size() > 0)
+		for (int i = 0 ; i < att.size() ; i++)
+			cout << " " << att[i]->id << "='" << att[i]->value << "'";
+	if (childNode.size() == 0)
+		cout << "/>" << endl;
+	else
+	{	
+		cout << ">" << endl;
+		for (int i = 0 ; i < childNode.size() ; i++)
+			childNode[i]->display();
+		cout << "</" << name << ">" << endl;
+	}
+}

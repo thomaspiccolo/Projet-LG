@@ -8,7 +8,7 @@
 
 using namespace std;
 
-int main (int argc, char * argv[])
+int main22 (int argc, char * argv[])
 {
 	//xmlElement * lastElementAdded = NULL;
 	xmlElement * root = new xmlElement("Rapport");

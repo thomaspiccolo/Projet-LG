@@ -13,7 +13,8 @@ class xmlText : public xmlNode{
 	
 	xmlText(std::string content);
 	~xmlText();
-	std::string getText(); 
+	std::string getText();
+	void display(); 
 };
 
 #endif

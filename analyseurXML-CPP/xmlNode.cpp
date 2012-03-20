@@ -9,3 +9,7 @@ xmlNode::xmlNode()
 xmlNode::~xmlNode()
 {
 }
+
+void xmlNode::display()
+{
+}

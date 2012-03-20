@@ -111,10 +111,15 @@
 
 using namespace std;
 #include "commun.h"
+#include "xmlElement.h"
+#include "xmlText.h"
 
 int yywrap(void);
 void yyerror(char *msg);
 int yylex(void);
+
+xmlElement * root;
+xmlElement * current;
 
 
 
@@ -138,13 +143,13 @@ int yylex(void);
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 12 "xml.y"
+#line 18 "xml.y"
 {
    char * s;
    ElementName * en;  /* le nom d'un element avec son namespace */
 }
 /* Line 193 of yacc.c.  */
-#line 148 "xml.tab.c"
+#line 153 "xml.tab.c"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
@@ -157,7 +162,7 @@ typedef union YYSTYPE
 
 
 /* Line 216 of yacc.c.  */
-#line 161 "xml.tab.c"
+#line 166 "xml.tab.c"
 
 #ifdef short
 # undef short
@@ -447,9 +452,9 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    24,    24,    27,    28,    31,    35,    36,    40,    44,
-      47,    48,    51,    52,    55,    58,    59,    62,    65,    66,
-      67,    68
+       0,    30,    30,    33,    34,    37,    41,    42,    46,    50,
+      53,    68,    84,    85,    88,    97,   101,   107,   110,   115,
+     116,   117
 };
 #endif
 
@@ -1369,9 +1374,80 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
-      
+        case 2:
+#line 30 "xml.y"
+    {current = NULL;}
+    break;
+
+  case 10:
+#line 54 "xml.y"
+    {
+ 			if (current==NULL)
+ 		  	{
+ 				root = new xmlElement((yyvsp[(1) - (1)].en)->second);
+ 				current = root;
+ 			}
+ 			else
+ 			{
+ 				xmlElement * newElement = new xmlElement((yyvsp[(1) - (1)].en)->second);
+				current->addXmlNode(newElement);
+ 				current = newElement;
+ 			}
+		;}
+    break;
+
+  case 11:
+#line 69 "xml.y"
+    {
+ 			if (current==NULL)
+ 		  	{
+ 				root = new xmlElement((yyvsp[(1) - (1)].en)->second,(yyvsp[(1) - (1)].en)->first);
+ 				current = root;
+ 			}
+ 			else
+ 			{
+ 				xmlElement * newElement = new xmlElement((yyvsp[(1) - (1)].en)->second,(yyvsp[(1) - (1)].en)->first);
+				current->addXmlNode(newElement);
+ 				current = newElement;
+ 			}
+ 		;}
+    break;
+
+  case 14:
+#line 89 "xml.y"
+    {
+ 			attribute * newAtt = new attribute;
+ 			newAtt->id = (yyvsp[(1) - (3)].s);
+ 			newAtt->value = (yyvsp[(3) - (3)].s);
+ 			current->addAttribute(newAtt);
+ 		;}
+    break;
+
+  case 15:
+#line 98 "xml.y"
+    {
+ 			current=current->getParent();
+ 		;}
+    break;
+
+  case 16:
+#line 102 "xml.y"
+    {
+ 			current=current->getParent();
+ 		;}
+    break;
+
+  case 18:
+#line 111 "xml.y"
+    {
+ 			xmlText * newContent = new xmlText((yyvsp[(2) - (2)].s));
+ 			current->addXmlNode(newContent);
+ 		;}
+    break;
+
+
 /* Line 1267 of yacc.c.  */
-#line 1375 "xml.tab.c"
+#line 1451 "xml.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1585,7 +1661,7 @@ yyreturn:
 }
 
 
-#line 70 "xml.y"
+#line 119 "xml.y"
 
 
 int main(int argc, char **argv)
@@ -1597,6 +1673,7 @@ int main(int argc, char **argv)
   err = yyparse();
   if (err != 0) printf("Parse ended with %d error(s)\n", err);
   	else  printf("Parse ended with success\n", err);
+  root->display();
   return 0;
 }
 int yywrap(void)
