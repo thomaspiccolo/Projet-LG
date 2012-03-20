@@ -1,0 +1,77 @@
+#include "xmlElement.h"
+#include <list>
+
+using namespace std;	
+
+
+xmlElement::xmlElement(string elName, xmlElement * elOwner, xmlElement * elParentElement)
+{
+	name = elName;
+	owner = elOwner;
+	parentElement = elParentElement;
+	childElementCount = 0;
+}
+
+xmlElement::~xmlElement()
+{
+}
+
+string xmlElement::getName()
+{
+	return name;
+}
+
+list<attribute> xmlElement::getAllAttributes()
+{
+	return att;
+}
+	
+attribute * xmlElement::getAttribute(int i)
+{
+	list<xmlNode*>::iterator sbegin = att.begin();
+	list<xmlNode*>::iterator send = att.begin();
+
+	for (int j = 0)
+}
+
+int xmlElement::getChildElementCount()
+{
+	return childElementCount;
+}
+
+list<xmlNode*> xmlElement::getAllChildNode()
+{	
+	return childNode;
+}
+	
+xmlNode* xmlElement::getChildNode(int i)
+{
+}
+
+list<xmlElement*> xmlElement::getAllChildElement()
+{
+	return childElement;
+}
+
+xmlElement* xmlElement::getChildElement(int i)
+{
+}
+
+xmlElement * xmlElement::getOwner()
+{
+	return owner;
+}
+	
+xmlElement * xmlElement::getParent()
+{
+	return parentElement;
+}
+
+void xmlElement::addAttribute(attribute att)
+{
+}
+
+void xmlElement::addXmlNode(xmlNode * node)
+{
+}
+

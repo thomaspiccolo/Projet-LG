@@ -1,0 +1,24 @@
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../main.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+In file included from /usr/include/c++/4.2.1/backward/iostream.h:31,
+                 from ../main.cpp:2:
+/usr/include/c++/4.2.1/backward/backward_warning.h:32:2: warning: #warning This file includes at least one deprecated or antiquated header. Please consider using one of the 32 headers found in section 17.4.1.2 of the C++ standard. Examples include substituting the <X> header for the <X.h> header for C++ includes, or <iostream> instead of the deprecated header <iostream.h>. To disable this warning use -Wno-deprecated.
+Finished building: ../main.cpp
+ 
+Building file: ../xmlElement.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"xmlElement.d" -MT"xmlElement.d" -o "xmlElement.o" "../xmlElement.cpp"
+Finished building: ../xmlElement.cpp
+ 
+Building target: analyseurXML-CPP
+Invoking: Cross G++ Linker
+g++  -o "analyseurXML-CPP"  ./main.o ./xmlElement.o ./xmlNode.o ./xmlText.o   
+Finished building target: analyseurXML-CPP
+ 
+
+**** Build Finished ****

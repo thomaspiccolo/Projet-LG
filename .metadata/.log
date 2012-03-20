@@ -1,0 +1,26 @@
+!SESSION 2012-03-16 09:55:19.129 -----------------------------------------------
+eclipse.buildId=M20110909-1335
+java.version=1.6.0_29
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -keyring /Users/RomainWillyDeville/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.cpp.product -keyring /Users/RomainWillyDeville/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2012-03-16 09:55:49.167
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.cdt.core 1 0 2012-03-16 09:56:40.006
+!MESSAGE Indexed 'analyseurXML' (6 sources, 158 headers) in 14.24 sec: 11,018 declarations; 15,810 references; 3 unresolved inclusions; 22 syntax errors; 19 unresolved names (0.07%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2012-03-16 09:58:43.269
+!MESSAGE Indexed 'analyseurXML-CPP' (0 sources, 61 headers) in 1.13 sec: 1,742 declarations; 1,709 references; 0 unresolved inclusions; 0 syntax errors; 4 unresolved names (0.12%)
+!SESSION 2012-03-20 08:06:45.298 -----------------------------------------------
+eclipse.buildId=M20110909-1335
+java.version=1.6.0_29
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -keyring /Users/RomainWillyDeville/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.cpp.product -keyring /Users/RomainWillyDeville/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2012-03-20 08:07:06.600
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences

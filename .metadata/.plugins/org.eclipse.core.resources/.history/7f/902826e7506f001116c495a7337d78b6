@@ -1,0 +1,33 @@
+#include <iostream>
+
+#include "xmlNode.h"
+#include "xmlText.h"
+#include "xmlElement.h"
+
+using namespace std;
+
+int main (int argc, char * argv[])
+{
+	//xmlElement * lastElementAdded = NULL;
+	xmlElement * root = new xmlElement("Rapport");
+	//lastElementAdded = root;
+	xmlElement * titre = new xmlElement("Titre");
+	xmlText * contentTitre = new xmlText("RŽaliser un compilateur");
+	titre->addXmlNode(contentTitre);
+	root->addXmlNode(titre);
+	cout << (titre->getParent()->getName()) << endl;
+	//lastElementAdded = titre;
+	xmlElement * auteur = new xmlElement("Auteur");
+	xmlElement * nom = new xmlElement("Nom");
+	xmlText * contenNom = new xmlText("Nino");
+	nom->addXmlNode(contenNom);
+	auteur->addXmlNode(nom);
+	xmlElement * prenom = new xmlElement("PrŽnom");
+	xmlText * contentPrenom = new xmlText("Silverio");
+	prenom->addXmlNode(contentPrenom);
+	auteur->addXmlNode(prenom);
+	root->addXmlNode(auteur);
+
+
+	return 0;
+}

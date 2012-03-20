@@ -1,0 +1,671 @@
+
+**** Build of configuration Debug for project analyseurXML ****
+
+make all 
+Building file: ../lex.yy.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"lex.yy.d" -MT"lex.yy.d" -o "lex.yy.o" "../lex.yy.c"
+In file included from xml.l:5:
+../commun.h:4: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'namespace'
+In file included from xml.l:5:
+../commun.h:5:16: warning: list: No such file or directory
+../commun.h:6:19: warning: utility: No such file or directory
+../commun.h:7:18: warning: string: No such file or directory
+../commun.h:9: error: expected '=', ',', ';', 'asm' or '__attribute__' before '<' token
+../commun.h:10: error: expected '=', ',', ';', 'asm' or '__attribute__' before '<' token
+../commun.h:11: error: expected '=', ',', ';', 'asm' or '__attribute__' before '<' token
+In file included from xml.l:6:
+xml.y:14: error: expected specifier-qualifier-list before 'ElementName'
+xml.l: In function 'skipSpace':
+xml.l:11: warning: implicit declaration of function 'isspace'
+xml.l: In function 'split_namespace':
+xml.l:53: warning: unused variable 'k'
+xml.l: In function 'yylex':
+xml.l:104: error: 'YYSTYPE' has no member named 'en'
+xml.l:104: error: 'new' undeclared (first use in this function)
+xml.l:104: error: (Each undeclared identifier is reported only once
+xml.l:104: error: for each function it appears in.)
+xml.l:104: error: expected ';' before 'ElementName'
+xml.l:105: error: 'YYSTYPE' has no member named 'en'
+xml.l:105: error: expected ';' before 'ElementName'
+xml.l:106: error: 'YYSTYPE' has no member named 'en'
+xml.l:106: error: expected ';' before 'ElementName'
+xml.l:107: error: 'YYSTYPE' has no member named 'en'
+xml.l:107: error: expected ';' before 'ElementName'
+xml.l:108: error: 'YYSTYPE' has no member named 'en'
+xml.l:108: error: expected ';' before 'ElementName'
+make: *** [lex.yy.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML ****
+
+make all 
+Building file: ../lex.yy.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"lex.yy.d" -MT"lex.yy.d" -o "lex.yy.o" "../lex.yy.c"
+In file included from xml.l:5:
+../commun.h:4: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'namespace'
+In file included from xml.l:5:
+../commun.h:5:16: warning: list: No such file or directory
+../commun.h:6:19: warning: utility: No such file or directory
+../commun.h:7:18: warning: string: No such file or directory
+../commun.h:9: error: expected '=', ',', ';', 'asm' or '__attribute__' before '<' token
+../commun.h:10: error: expected '=', ',', ';', 'asm' or '__attribute__' before '<' token
+../commun.h:11: error: expected '=', ',', ';', 'asm' or '__attribute__' before '<' token
+In file included from xml.l:6:
+xml.y:14: error: expected specifier-qualifier-list before 'ElementName'
+xml.l: In function 'skipSpace':
+xml.l:11: warning: implicit declaration of function 'isspace'
+xml.l: In function 'split_namespace':
+xml.l:53: warning: unused variable 'k'
+xml.l: In function 'yylex':
+xml.l:104: error: 'YYSTYPE' has no member named 'en'
+xml.l:104: error: 'new' undeclared (first use in this function)
+xml.l:104: error: (Each undeclared identifier is reported only once
+xml.l:104: error: for each function it appears in.)
+xml.l:104: error: expected ';' before 'ElementName'
+xml.l:105: error: 'YYSTYPE' has no member named 'en'
+xml.l:105: error: expected ';' before 'ElementName'
+xml.l:106: error: 'YYSTYPE' has no member named 'en'
+xml.l:106: error: expected ';' before 'ElementName'
+xml.l:107: error: 'YYSTYPE' has no member named 'en'
+xml.l:107: error: expected ';' before 'ElementName'
+xml.l:108: error: 'YYSTYPE' has no member named 'en'
+xml.l:108: error: expected ';' before 'ElementName'
+make: *** [lex.yy.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML ****
+
+make all 
+Building file: ../lex.yy.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"lex.yy.d" -MT"lex.yy.d" -o "lex.yy.o" "../lex.yy.c"
+In file included from xml.l:5:
+../commun.h:4: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'namespace'
+In file included from xml.l:5:
+../commun.h:5:16: warning: list: No such file or directory
+../commun.h:6:19: warning: utility: No such file or directory
+../commun.h:7:18: warning: string: No such file or directory
+../commun.h:9: error: expected '=', ',', ';', 'asm' or '__attribute__' before '<' token
+../commun.h:10: error: expected '=', ',', ';', 'asm' or '__attribute__' before '<' token
+../commun.h:11: error: expected '=', ',', ';', 'asm' or '__attribute__' before '<' token
+In file included from xml.l:6:
+xml.y:14: error: expected specifier-qualifier-list before 'ElementName'
+xml.l: In function 'skipSpace':
+xml.l:11: warning: implicit declaration of function 'isspace'
+xml.l: In function 'split_namespace':
+xml.l:53: warning: unused variable 'k'
+xml.l: In function 'yylex':
+xml.l:104: error: 'YYSTYPE' has no member named 'en'
+xml.l:104: error: 'new' undeclared (first use in this function)
+xml.l:104: error: (Each undeclared identifier is reported only once
+xml.l:104: error: for each function it appears in.)
+xml.l:104: error: expected ';' before 'ElementName'
+xml.l:105: error: 'YYSTYPE' has no member named 'en'
+xml.l:105: error: expected ';' before 'ElementName'
+xml.l:106: error: 'YYSTYPE' has no member named 'en'
+xml.l:106: error: expected ';' before 'ElementName'
+xml.l:107: error: 'YYSTYPE' has no member named 'en'
+xml.l:107: error: expected ';' before 'ElementName'
+xml.l:108: error: 'YYSTYPE' has no member named 'en'
+xml.l:108: error: expected ';' before 'ElementName'
+make: *** [lex.yy.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../main.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building file: ../xml.tab.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"xml.tab.d" -MT"xml.tab.d" -o "xml.tab.o" "../xml.tab.c"
+xml.y:3: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'namespace'
+xml.y:4:20: error: commun.h: No such file or directory
+xml.y:14: error: expected specifier-qualifier-list before 'ElementName'
+xml.y: In function 'main':
+xml.y:80: warning: too many arguments for format
+make: *** [xml.tab.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../xml.tab.c
+Invoking: Cross GCC Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"xml.tab.d" -MT"xml.tab.d" -o "xml.tab.o" "../xml.tab.c"
+xml.y:3: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'namespace'
+xml.y:4:20: error: commun.h: No such file or directory
+xml.y:14: error: expected specifier-qualifier-list before 'ElementName'
+xml.y: In function 'main':
+xml.y:80: warning: too many arguments for format
+make: *** [xml.tab.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../xmlElement.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"xmlElement.d" -MT"xmlElement.d" -o "xmlElement.o" "../xmlElement.cpp"
+../xmlElement.cpp: In member function 'xmlElement* xmlElement::getChildElement(int)':
+../xmlElement.cpp:49: warning: control reaches end of non-void function
+../xmlElement.cpp: In member function 'xmlNode* xmlElement::getChildNode(int)':
+../xmlElement.cpp:40: warning: control reaches end of non-void function
+../xmlElement.cpp: In member function 'attribute* xmlElement::getAttribute(int)':
+../xmlElement.cpp:26: warning: control reaches end of non-void function
+Finished building: ../xmlElement.cpp
+ 
+Building file: ../xmlNode.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"xmlNode.d" -MT"xmlNode.d" -o "xmlNode.o" "../xmlNode.cpp"
+Finished building: ../xmlNode.cpp
+ 
+Building file: ../xmlText.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"xmlText.d" -MT"xmlText.d" -o "xmlText.o" "../xmlText.cpp"
+Finished building: ../xmlText.cpp
+ 
+Building target: analyseurXML-CPP
+Invoking: Cross G++ Linker
+g++  -o "analyseurXML-CPP"  ./main.o ./xmlElement.o ./xmlNode.o ./xmlText.o   
+Finished building target: analyseurXML-CPP
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../xmlElement.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"xmlElement.d" -MT"xmlElement.d" -o "xmlElement.o" "../xmlElement.cpp"
+../xmlElement.cpp: In member function 'attribute* xmlElement::getAttribute(int)':
+../xmlElement.cpp:31: error: cannot convert 'std::_List_iterator<attribute>' to 'attribute*' in return
+/usr/include/c++/4.2.1/bits/stl_algo.h: In function '_InputIterator std::__find_if(_InputIterator, _InputIterator, _Predicate, std::input_iterator_tag) [with _InputIterator = std::_List_iterator<attribute>, _Predicate = int]':
+/usr/include/c++/4.2.1/bits/stl_algo.h:349:   instantiated from '_InputIterator std::find_if(_InputIterator, _InputIterator, _Predicate) [with _InputIterator = std::_List_iterator<attribute>, _Predicate = int]'
+../xmlElement.cpp:31:   instantiated from here
+/usr/include/c++/4.2.1/bits/stl_algo.h:188: error: '__pred' cannot be used as a function
+make: *** [xmlElement.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../main.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building file: ../xmlElement.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"xmlElement.d" -MT"xmlElement.d" -o "xmlElement.o" "../xmlElement.cpp"
+../xmlElement.cpp: In member function 'attribute* xmlElement::getAttribute(int)':
+../xmlElement.cpp:31: error: cannot convert 'attribute' to 'attribute*' in return
+make: *** [xmlElement.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../main.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building file: ../xmlElement.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"xmlElement.d" -MT"xmlElement.d" -o "xmlElement.o" "../xmlElement.cpp"
+../xmlElement.cpp: In member function 'std::vector<attribute, std::allocator<attribute> > xmlElement::getAllAttributes()':
+../xmlElement.cpp:26: error: conversion from 'std::vector<attribute*, std::allocator<attribute*> >' to non-scalar type 'std::vector<attribute, std::allocator<attribute> >' requested
+make: *** [xmlElement.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../xmlElement.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"xmlElement.d" -MT"xmlElement.d" -o "xmlElement.o" "../xmlElement.cpp"
+../xmlElement.cpp:24: error: prototype for 'std::vector<attribute*, std::allocator<attribute*> > xmlElement::getAllAttributes()' does not match any in class 'xmlElement'
+../xmlElement.h:32: error: candidate is: std::vector<attribute, std::allocator<attribute> > xmlElement::getAllAttributes()
+../xmlElement.cpp:24: error: 'std::vector<attribute*, std::allocator<attribute*> > xmlElement::getAllAttributes()' cannot be overloaded
+../xmlElement.h:32: error: with 'std::vector<attribute, std::allocator<attribute> > xmlElement::getAllAttributes()'
+make: *** [xmlElement.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../main.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building file: ../xmlElement.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"xmlElement.d" -MT"xmlElement.d" -o "xmlElement.o" "../xmlElement.cpp"
+../xmlElement.cpp: In member function 'xmlElement* xmlElement::getChildElement(int)':
+../xmlElement.cpp:56: warning: control reaches end of non-void function
+../xmlElement.cpp: In member function 'xmlNode* xmlElement::getChildNode(int)':
+../xmlElement.cpp:47: warning: control reaches end of non-void function
+Finished building: ../xmlElement.cpp
+ 
+Building target: analyseurXML-CPP
+Invoking: Cross G++ Linker
+g++  -o "analyseurXML-CPP"  ./main.o ./xmlElement.o ./xmlNode.o ./xmlText.o   
+Finished building target: analyseurXML-CPP
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../xmlElement.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"xmlElement.d" -MT"xmlElement.d" -o "xmlElement.o" "../xmlElement.cpp"
+../xmlElement.cpp:70: error: prototype for 'void xmlElement::addAttribute(attribute*)' does not match any in class 'xmlElement'
+../xmlElement.h:42: error: candidate is: void xmlElement::addAttribute(attribute)
+../xmlElement.cpp: In member function 'void xmlElement::addXmlNode(xmlNode*)':
+../xmlElement.cpp:78: error: must #include <typeinfo> before using typeid
+../xmlElement.cpp:78: error: expected primary-expression before ')' token
+../xmlElement.cpp:80: error: invalid conversion from 'xmlNode*' to 'xmlElement*'
+../xmlElement.cpp:80: error:   initializing argument 1 of 'void std::vector<_Tp, _Alloc>::push_back(const _Tp&) [with _Tp = xmlElement*, _Alloc = std::allocator<xmlElement*>]'
+../xmlElement.cpp: At global scope:
+../xmlElement.cpp:84: error: expected declaration before '}' token
+make: *** [xmlElement.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../main.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building file: ../xmlElement.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"xmlElement.d" -MT"xmlElement.d" -o "xmlElement.o" "../xmlElement.cpp"
+../xmlElement.cpp: In member function 'void xmlElement::addXmlNode(xmlNode*)':
+../xmlElement.cpp:78: error: must #include <typeinfo> before using typeid
+../xmlElement.cpp:78: error: expected primary-expression before ')' token
+../xmlElement.cpp:80: error: invalid conversion from 'xmlNode*' to 'xmlElement*'
+../xmlElement.cpp:80: error:   initializing argument 1 of 'void std::vector<_Tp, _Alloc>::push_back(const _Tp&) [with _Tp = xmlElement*, _Alloc = std::allocator<xmlElement*>]'
+../xmlElement.cpp: At global scope:
+../xmlElement.cpp:84: error: expected declaration before '}' token
+make: *** [xmlElement.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../xmlElement.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"xmlElement.d" -MT"xmlElement.d" -o "xmlElement.o" "../xmlElement.cpp"
+../xmlElement.cpp: In member function 'void xmlElement::addXmlNode(xmlNode*)':
+../xmlElement.cpp:78: error: must #include <typeinfo> before using typeid
+../xmlElement.cpp:78: error: expected primary-expression before '*' token
+../xmlElement.cpp:78: error: expected primary-expression before ')' token
+make: *** [xmlElement.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../xmlElement.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"xmlElement.d" -MT"xmlElement.d" -o "xmlElement.o" "../xmlElement.cpp"
+../xmlElement.cpp: In member function 'void xmlElement::addXmlNode(xmlNode*)':
+../xmlElement.cpp:78: error: must #include <typeinfo> before using typeid
+../xmlElement.cpp:78: error: 'tyipeid' was not declared in this scope
+make: *** [xmlElement.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../xmlElement.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"xmlElement.d" -MT"xmlElement.d" -o "xmlElement.o" "../xmlElement.cpp"
+../xmlElement.cpp: In member function 'void xmlElement::addXmlNode(xmlNode*)':
+../xmlElement.cpp:78: error: must #include <typeinfo> before using typeid
+../xmlElement.cpp:78: error: must #include <typeinfo> before using typeid
+make: *** [xmlElement.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../xmlElement.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"xmlElement.d" -MT"xmlElement.d" -o "xmlElement.o" "../xmlElement.cpp"
+Finished building: ../xmlElement.cpp
+ 
+Building target: analyseurXML-CPP
+Invoking: Cross G++ Linker
+g++  -o "analyseurXML-CPP"  ./main.o ./xmlElement.o ./xmlNode.o ./xmlText.o   
+Finished building target: analyseurXML-CPP
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../main.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+../main.cpp: In function 'int main(int, char**)':
+../main.cpp:7: error: 'Element' was not declared in this scope
+../main.cpp:7: error: 'root' was not declared in this scope
+../main.cpp:7: error: expected type-specifier before 'Element'
+../main.cpp:7: error: expected `;' before 'Element'
+make: *** [main.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../main.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+../main.cpp: In function 'int main(int, char**)':
+../main.cpp:7: error: no matching function for call to 'xmlElement::xmlElement(const char [8], NULL, NULL)'
+../xmlElement.h:27: note: candidates are: xmlElement::xmlElement(std::string)
+../xmlElement.h:15: note:                 xmlElement::xmlElement(const xmlElement&)
+../main.cpp:8: error: no matching function for call to 'xmlElement::xmlElement(const char [6], xmlElement*&, xmlElement*&)'
+../xmlElement.h:27: note: candidates are: xmlElement::xmlElement(std::string)
+../xmlElement.h:15: note:                 xmlElement::xmlElement(const xmlElement&)
+../main.cpp:8: warning: unused variable 'titre'
+make: *** [main.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../main.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+../main.cpp: In function 'int main(int, char**)':
+../main.cpp:7: error: no matching function for call to 'xmlElement::xmlElement(const char [8], NULL, NULL)'
+../xmlElement.h:27: note: candidates are: xmlElement::xmlElement(std::string)
+../xmlElement.h:15: note:                 xmlElement::xmlElement(const xmlElement&)
+../main.cpp:8: error: no matching function for call to 'xmlElement::xmlElement(const char [6], xmlElement*&, xmlElement*&)'
+../xmlElement.h:27: note: candidates are: xmlElement::xmlElement(std::string)
+../xmlElement.h:15: note:                 xmlElement::xmlElement(const xmlElement&)
+../main.cpp:8: warning: unused variable 'titre'
+make: *** [main.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../main.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+../main.cpp: In function 'int main(int, char**)':
+../main.cpp:7: error: no matching function for call to 'xmlElement::xmlElement(const char [8], NULL, NULL)'
+../xmlElement.h:27: note: candidates are: xmlElement::xmlElement(std::string)
+../xmlElement.h:15: note:                 xmlElement::xmlElement(const xmlElement&)
+../main.cpp:8: error: no matching function for call to 'xmlElement::xmlElement(const char [6], xmlElement*&, xmlElement*&)'
+../xmlElement.h:27: note: candidates are: xmlElement::xmlElement(std::string)
+../xmlElement.h:15: note:                 xmlElement::xmlElement(const xmlElement&)
+../main.cpp:8: warning: unused variable 'titre'
+make: *** [main.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../main.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+../main.cpp: In function 'int main(int, char**)':
+../main.cpp:7: error: no matching function for call to 'xmlElement::xmlElement(const char [8], NULL, NULL)'
+../xmlElement.h:27: note: candidates are: xmlElement::xmlElement(std::string)
+../xmlElement.h:15: note:                 xmlElement::xmlElement(const xmlElement&)
+../main.cpp:8: error: no matching function for call to 'xmlElement::xmlElement(const char [6], xmlElement*&, xmlElement*&)'
+../xmlElement.h:27: note: candidates are: xmlElement::xmlElement(std::string)
+../xmlElement.h:15: note:                 xmlElement::xmlElement(const xmlElement&)
+../main.cpp:8: warning: unused variable 'titre'
+make: *** [main.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../main.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+../main.cpp: In function 'int main(int, char**)':
+../main.cpp:7: error: no matching function for call to 'xmlElement::xmlElement(const char [8], NULL, NULL)'
+../xmlElement.h:27: note: candidates are: xmlElement::xmlElement(std::string)
+../xmlElement.h:15: note:                 xmlElement::xmlElement(const xmlElement&)
+../main.cpp:8: error: no matching function for call to 'xmlElement::xmlElement(const char [6], xmlElement*&, xmlElement*&)'
+../xmlElement.h:27: note: candidates are: xmlElement::xmlElement(std::string)
+../xmlElement.h:15: note:                 xmlElement::xmlElement(const xmlElement&)
+../main.cpp:8: warning: unused variable 'titre'
+make: *** [main.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../main.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+../main.cpp: In function 'int main(int, char**)':
+../main.cpp:7: error: no matching function for call to 'xmlElement::xmlElement(const char [8], NULL, NULL)'
+../xmlElement.h:27: note: candidates are: xmlElement::xmlElement(std::string)
+../xmlElement.h:15: note:                 xmlElement::xmlElement(const xmlElement&)
+../main.cpp:8: error: no matching function for call to 'xmlElement::xmlElement(const char [6], xmlElement*&, xmlElement*&)'
+../xmlElement.h:27: note: candidates are: xmlElement::xmlElement(std::string)
+../xmlElement.h:15: note:                 xmlElement::xmlElement(const xmlElement&)
+../main.cpp:8: warning: unused variable 'titre'
+make: *** [main.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../main.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building file: ../xmlElement.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"xmlElement.d" -MT"xmlElement.d" -o "xmlElement.o" "../xmlElement.cpp"
+Finished building: ../xmlElement.cpp
+ 
+Building target: analyseurXML-CPP
+Invoking: Cross G++ Linker
+g++  -o "analyseurXML-CPP"  ./main.o ./xmlElement.o ./xmlNode.o ./xmlText.o   
+Finished building target: analyseurXML-CPP
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../main.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+../main.cpp: In function 'int main(int, char**)':
+../main.cpp:7: warning: unused variable 'lastElementAdded'
+Finished building: ../main.cpp
+ 
+Building target: analyseurXML-CPP
+Invoking: Cross G++ Linker
+g++  -o "analyseurXML-CPP"  ./main.o ./xmlElement.o ./xmlNode.o ./xmlText.o   
+Finished building target: analyseurXML-CPP
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../main.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: analyseurXML-CPP
+Invoking: Cross G++ Linker
+g++  -o "analyseurXML-CPP"  ./main.o ./xmlElement.o ./xmlNode.o ./xmlText.o   
+Finished building target: analyseurXML-CPP
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../main.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building file: ../xmlElement.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"xmlElement.d" -MT"xmlElement.d" -o "xmlElement.o" "../xmlElement.cpp"
+Finished building: ../xmlElement.cpp
+ 
+Building file: ../xmlNode.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"xmlNode.d" -MT"xmlNode.d" -o "xmlNode.o" "../xmlNode.cpp"
+Finished building: ../xmlNode.cpp
+ 
+Building file: ../xmlText.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"xmlText.d" -MT"xmlText.d" -o "xmlText.o" "../xmlText.cpp"
+Finished building: ../xmlText.cpp
+ 
+Building target: analyseurXML-CPP
+Invoking: Cross G++ Linker
+g++  -o "analyseurXML-CPP"  ./main.o ./xmlElement.o ./xmlNode.o ./xmlText.o   
+Finished building target: analyseurXML-CPP
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+make: Nothing to be done for `all'.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../main.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+../main.cpp:2:17: warning: stdio: No such file or directory
+Finished building: ../main.cpp
+ 
+Building target: analyseurXML-CPP
+Invoking: Cross G++ Linker
+g++  -o "analyseurXML-CPP"  ./main.o ./xmlElement.o ./xmlNode.o ./xmlText.o   
+Finished building target: analyseurXML-CPP
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../main.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: analyseurXML-CPP
+Invoking: Cross G++ Linker
+g++  -o "analyseurXML-CPP"  ./main.o ./xmlElement.o ./xmlNode.o ./xmlText.o   
+Finished building target: analyseurXML-CPP
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../main.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+../main.cpp: In function 'int main(int, char**)':
+../main.cpp:14: error: cannot convert 'std::string' to 'const char*' for argument '1' to 'int printf(const char*, ...)'
+make: *** [main.o] Error 1
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../main.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+Finished building: ../main.cpp
+ 
+Building target: analyseurXML-CPP
+Invoking: Cross G++ Linker
+g++  -o "analyseurXML-CPP"  ./main.o ./xmlElement.o ./xmlNode.o ./xmlText.o   
+Finished building target: analyseurXML-CPP
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project analyseurXML-CPP ****
+
+make all 
+Building file: ../main.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.d" -o "main.o" "../main.cpp"
+In file included from /usr/include/c++/4.2.1/backward/iostream.h:31,
+                 from ../main.cpp:2:
+/usr/include/c++/4.2.1/backward/backward_warning.h:32:2: warning: #warning This file includes at least one deprecated or antiquated header. Please consider using one of the 32 headers found in section 17.4.1.2 of the C++ standard. Examples include substituting the <X> header for the <X.h> header for C++ includes, or <iostream> instead of the deprecated header <iostream.h>. To disable this warning use -Wno-deprecated.
+Finished building: ../main.cpp
+ 
+Building file: ../xmlElement.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"xmlElement.d" -MT"xmlElement.d" -o "xmlElement.o" "../xmlElement.cpp"
+Finished building: ../xmlElement.cpp
+ 
+Building target: analyseurXML-CPP
+Invoking: Cross G++ Linker
+g++  -o "analyseurXML-CPP"  ./main.o ./xmlElement.o ./xmlNode.o ./xmlText.o   
+Finished building target: analyseurXML-CPP
+ 
+
+**** Build Finished ****
