@@ -39,64 +39,59 @@
    /* Put the tokens into the symbol table, so that GDB and other debuggers
       know about them.  */
    enum yytokentype {
-     ELEMENT = 258,
-     ATTLIST = 259,
+     EQ = 258,
+     SLASH = 259,
      CLOSE = 260,
-     OPENPAR = 261,
-     CLOSEPAR = 262,
-     COMMA = 263,
-     PIPE = 264,
-     FIXED = 265,
-     EMPTY = 266,
-     ANY = 267,
-     PCDATA = 268,
-     AST = 269,
-     QMARK = 270,
-     PLUS = 271,
-     CDATA = 272,
-     IDENT = 273,
-     TOKENTYPE = 274,
-     DECLARATION = 275,
-     STRING = 276
+     CLOSESPECIAL = 261,
+     DOCTYPE = 262,
+     ENCODING = 263,
+     STRING = 264,
+     DATA = 265,
+     COMMENT = 266,
+     IDENT = 267,
+     NSIDENT = 268,
+     NSSTART = 269,
+     START = 270,
+     STARTSPECIAL = 271,
+     END = 272,
+     NSEND = 273
    };
 #endif
 /* Tokens.  */
-#define ELEMENT 258
-#define ATTLIST 259
+#define EQ 258
+#define SLASH 259
 #define CLOSE 260
-#define OPENPAR 261
-#define CLOSEPAR 262
-#define COMMA 263
-#define PIPE 264
-#define FIXED 265
-#define EMPTY 266
-#define ANY 267
-#define PCDATA 268
-#define AST 269
-#define QMARK 270
-#define PLUS 271
-#define CDATA 272
-#define IDENT 273
-#define TOKENTYPE 274
-#define DECLARATION 275
-#define STRING 276
+#define CLOSESPECIAL 261
+#define DOCTYPE 262
+#define ENCODING 263
+#define STRING 264
+#define DATA 265
+#define COMMENT 266
+#define IDENT 267
+#define NSIDENT 268
+#define NSSTART 269
+#define START 270
+#define STARTSPECIAL 271
+#define END 272
+#define NSEND 273
 
 
 
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 7 "dtd.y"
-{ 
-   char *s; 
-   }
+#line 19 "xml.y"
+{
+   char * s;
+   ElementName * en;  /* le nom d'un element avec son namespace */
+}
 /* Line 1529 of yacc.c.  */
-#line 95 "yy.tab.h"
+#line 90 "xml.tab.h"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
 # define YYSTYPE_IS_TRIVIAL 1
 #endif
 
-extern YYSTYPE yylval;
+extern YYSTYPE xmllval;
 
