@@ -17,22 +17,18 @@ void find (xmlElement* elNode,  xmlElement* xslRoot)
 			for (int j = 0 ; j < attCount ; j++)
 			{
 				currentAtt = elCurrent->getAttribute(j);
-				cout << (currentAtt->id == "match") << "=" << (currentAtt->value == elNode->getName()) << endl;		
 				if ((currentAtt->id == "match") && (currentAtt->value == elNode->getName()))
 				{
-					//transform(elNode,elCurrent);
-					xmlElement* temp = elCurrent;
+					elCurrent->display();
+					xmlElement* elApplyTemplates = elCurrent->getElementByFullName("xsl:apply-templates");
 					xmlElement* elNodeParent = elNode->getParent();
 					int i = 0;
-					if (elNodeParent != NULL)
+					if (elApplyTemplates!= NULL)
 					{
-						temp = temp->getElementByFullName("xsl:apply-templates");
-						if (temp != NULL)
-								cout << "Apply-Temlates find for : " << temp->getName() << endl;
-						else
-							cout << "Apply-Temlates not find for : " << endl; // << temp->getName() << endl;
-					}
-					find = true;
+							transform(elNode,elCurrent,elApplyTemplates );
+							find = true;
+							break;
+					}					
 				}
 			}
 		}
@@ -40,13 +36,37 @@ void find (xmlElement* elNode,  xmlElement* xslRoot)
 	}
 }
 
-void transform (xmlElement*& elNode, xmlElement* elNewParent)
+
+void transform (xmlElement*& elXMLNode, xmlElement * elXSLTemplate , xmlElement* elApplyTemplates)
 {
-	xmlElement* temp = elNewParent;
-	xmlElement* elNodeParent = elNode->getParent();
-	int i = 0;
-	if (elNodeParent != NULL)
+	int itNode = 0;
+	int itElement = 0;
+	bool find = false;
+	
+	elXMLNode->setParent(elApplyTemplates->getParent());
+	xmlElement * elATParent = elApplyTemplates->getParent(); //elATParent = elApplyTemplatesParent
+
+	while (find == false && itNode < elATParent->getAllChildNode().size())
 	{
+		if (elATParent->getChildNode(itNode) == elApplyTemplates)
+		{
+			elATParent->getAllChildNodeVector()->at(itNode) = elXMLNode;
+			find = true;
+		}
+		else
+			itNode++;
 	}
-		
+	find = false;
+	while (find == false && itElement < elATParent->getAllChildElement().size())
+	{
+		if (elATParent->getChildElement(itElement) == elApplyTemplates)
+		{
+			elATParent->getAllChildElementVector()->at(itElement) = elXMLNode;
+			find = true;
+		}
+		else
+			itElement++;
+	}	
+	xmlElement * test = elXSLTemplate->copy();
 }
+

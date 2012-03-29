@@ -1,4 +1,5 @@
 #include "xmlElement.h"
+#include "xmlText.h"
 #include <list>
 #include <typeinfo>
 #include <iostream>
@@ -65,6 +66,11 @@ vector<xmlNode*> xmlElement::getAllChildNode()
 {	
 	return childNode;
 }
+
+vector<xmlNode*> * xmlElement::getAllChildNodeVector()
+{	
+	return &childNode;
+}
 	
 xmlNode* xmlElement::getChildNode(int i)
 {
@@ -74,6 +80,11 @@ xmlNode* xmlElement::getChildNode(int i)
 vector<xmlElement*> xmlElement::getAllChildElement()
 {
 	return childElement;
+}
+
+vector<xmlElement*> * xmlElement::getAllChildElementVector()
+{	
+	return &childElement;
 }
 
 xmlElement* xmlElement::getChildElement(int i)
@@ -137,13 +148,50 @@ xmlElement * xmlElement::getElementByFullName(string elName)
 		}
 		else
 		{
-			xmlElement* result = childElement[i]->getElementByFullName(name);
+			xmlElement* result = childElement[i]->getElementByFullName(elName);
+			cout << "==============\n\n=========" << childElement[i]->getFullName() << endl;
 			if (result != NULL)
 				return result;
 		}
 	}
 	return NULL;
 }
+
+
+xmlElement * xmlElement::copy ()
+{
+	cout << "XML ELEMENT COPY 1!!!" << endl;
+	xmlElement * newEltResult;
+	cout << name << endl;
+	if (ns == "")
+		newEltResult = new xmlElement(name);
+	else 
+		newEltResult = new xmlElement(name,ns);
+	cout << "XML ELEMENT COPY 2!!" << endl;
+	for (int i = 0 ; i < childNode.size() ; i++)
+	{
+		cout << "XML ELEMENT COPY 3!!" << endl;
+		xmlNode * tempChild = childNode[i];
+		xmlElement * tempElement =  dynamic_cast<xmlElement*>(tempChild);
+		cout << "XML ELEMENT COPY 4!!" << endl;
+		if(tempElement != NULL)
+		{
+			cout << "XML ELEMENT COPY 5!!" << endl;
+			newEltResult->addXmlNode(tempElement->copy());
+		}	
+		else
+		{
+			cout << "XML ELEMENT COPY 6!!" << endl;	
+			xmlText * tempText =  new xmlText(((xmlText*)tempChild)->getText());
+			newEltResult->addXmlNode(tempText);
+		}
+	}
+	cout << "XML ELEMENT COPY !!!" << endl;
+	newEltResult->display();
+	cout << "END XML ELEMENT COPY !!!" << endl;
+	return newEltResult;
+}
+
 
 void xmlElement::display()
 {

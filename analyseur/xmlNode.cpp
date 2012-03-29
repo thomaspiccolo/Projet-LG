@@ -13,3 +13,4 @@ xmlNode::~xmlNode()
 void xmlNode::display()
 {
 }
+

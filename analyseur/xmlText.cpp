@@ -20,6 +20,7 @@ string xmlText::getText()
 	return text;
 }
 
+
 void xmlText::display()
 {
 	cout << text << endl;	

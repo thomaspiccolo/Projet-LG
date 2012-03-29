@@ -9,6 +9,6 @@ using namespace std;
 
 void find(xmlElement* elNode, xmlElement* xslRoot);
 
-void tranform(xmlElement* &elNode, xmlElement* elNewParent);
+void transform (xmlElement*& elXMLNode, xmlElement * elXSLTemplate , xmlElement* elApplyTemplates);
 
 #endif

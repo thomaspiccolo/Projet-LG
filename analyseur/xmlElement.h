@@ -36,8 +36,10 @@ class xmlElement : public xmlNode {
 	int getAttributeCount();
 	int getChildElementCount();
 	vector<xmlNode*> getAllChildNode();
+	vector<xmlNode*> * getAllChildNodeVector();
 	xmlNode* getChildNode(int i);
 	vector<xmlElement*> getAllChildElement();
+	vector<xmlElement*> * getAllChildElementVector();
 	xmlElement * getChildElement(int i);
 	xmlElement * getParent();
 
@@ -47,6 +49,7 @@ class xmlElement : public xmlNode {
 	void addXmlNode(xmlNode * elNode);
 	xmlElement * getElementByName(string name);
 	xmlElement * getElementByFullName(string elName);
+	xmlElement * copy ();
 	void display();
 };
 

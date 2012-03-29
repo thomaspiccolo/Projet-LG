@@ -78,10 +78,8 @@ int main(int argc, char **argv)
 
 	xmlTree->display();
 	printf("======================================================\n");
-	xslTree->display();
 	
-	xmlTree->getChildElement(0)->display();
 	find(xmlTree->getChildElement(0),xslTree);	
-	
+	xslTree->display();	
   return 0;
 }

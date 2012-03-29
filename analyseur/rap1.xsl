@@ -3,7 +3,7 @@
 <xsl:template match="rapport">	
 	<html>
 	<head>
-		<title>Title: <xsl:value-of select="//titre"/></title>
+		<title>Title: TP Analyseur XML</title>
 	</head>
 	<body>
 		<xsl:apply-templates/>
@@ -32,10 +32,6 @@
 
 <xsl:template match="chaptire">
 	<xsl:apply-templates/>
-</xsl:template>
-
-<xsl:template match="titre">
-	<h4><xsl:apply-templates/></h4>
 </xsl:template>
 
 <xsl:template match="section">
