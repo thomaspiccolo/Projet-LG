@@ -5,7 +5,6 @@
 #include "commun.h"
 #include "xml.tab.h"
 
-
 static char* skipSpace(char *s) {
   char *buf;
   int i,lastnonspace;
@@ -98,18 +97,18 @@ closespecial "?>"{nl}?
 <INITIAL>"="		{ return EQ;}
 <INITIAL>{close}	{ BEGIN(CONTENT); return CLOSE;}
 <INITIAL>{closespecial}	{ return CLOSESPECIAL;}
-<INITIAL>{name}		{ xmllval.s = strdup(xmltext); return IDENT;}
-<INITIAL>{nsname}		{ xmllval.s = strdup(xmltext); return NSIDENT;}
-<INITIAL>{string}	{ xmllval.s = strdup(getString(xmltext)); return STRING;}
+<INITIAL>{name}		{ xmllval.s = strdup(yytext); return IDENT;}
+<INITIAL>{nsname}		{ xmllval.s = strdup(yytext); return NSIDENT;}
+<INITIAL>{string}	{ xmllval.s = strdup(getString(yytext)); return STRING;}
 
-{openspecial}{ws}?{name}	{ BEGIN(INITIAL); char * tmp = word(xmltext); xmllval.en = new ElementName("",tmp); free(tmp); return STARTSPECIAL;}
-{open}{ws}?{name}	{ BEGIN(INITIAL); char * tmp = word(xmltext); xmllval.en = new ElementName("",tmp); free(tmp); return START;}
-{open}{ws}?{nsname}	{ BEGIN(INITIAL); char *tmp1 = nameSpace(xmltext); char * tmp2 = split_namespace(xmltext); xmllval.en = new ElementName(tmp1,tmp2); free(tmp1); free(tmp2); return NSSTART;}
-{open}"/"{name}		{BEGIN(INITIAL); char * tmp = word(xmltext); xmllval.en = new ElementName("",tmp); free(tmp); return END;}
-{open}"/"{nsname}		{BEGIN(INITIAL); char *tmp1 = nameSpace(xmltext); char * tmp2 = split_namespace(xmltext); xmllval.en = new ElementName(tmp1,tmp2); free(tmp1); free(tmp2); return NSEND;}
-{comment}		{ xmllval.s = strdup(xmltext); return COMMENT;}
+{openspecial}{ws}?{name}	{ BEGIN(INITIAL); char * tmp = word(yytext); xmllval.en = new ElementName("",tmp); free(tmp); return STARTSPECIAL;}
+{open}{ws}?{name}	{ BEGIN(INITIAL); char * tmp = word(yytext); xmllval.en = new ElementName("",tmp); free(tmp); return START;}
+{open}{ws}?{nsname}	{ BEGIN(INITIAL); char *tmp1 = nameSpace(yytext); char * tmp2 = split_namespace(yytext); xmllval.en = new ElementName(tmp1,tmp2); free(tmp1); free(tmp2); return NSSTART;}
+{open}"/"{name}		{BEGIN(INITIAL); char * tmp = word(yytext); xmllval.en = new ElementName("",tmp); free(tmp); return END;}
+{open}"/"{nsname}		{BEGIN(INITIAL); char *tmp1 = nameSpace(yytext); char * tmp2 = split_namespace(yytext); xmllval.en = new ElementName(tmp1,tmp2); free(tmp1); free(tmp2); return NSEND;}
+{comment}		{ xmllval.s = strdup(yytext); return COMMENT;}
 
-<CONTENT>{ws}?{pcdata}		{ xmllval.s = strdup(skipSpace(xmltext)); return DATA;}
+<CONTENT>{ws}?{pcdata}		{ xmllval.s = strdup(skipSpace(yytext)); return DATA;}
 
-.			{ fprintf(stderr, "!ERROR(%c)\n", *xmltext);}
+.			{ fprintf(stderr, "!ERROR(%c)\n", *yytext);}
 

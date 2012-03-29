@@ -1,5 +1,5 @@
 #ifndef XMLELEMENT_H
-#define XMLEMENT_H
+#define XMLELEMENT_H
 
 #include <vector>
 #include <string>

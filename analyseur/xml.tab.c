@@ -127,8 +127,9 @@ int xmlwrap(void);
 void xmlerror(char *msg);
 int xmllex(void);
 
-xmlElement * root;
-xmlElement * current;
+ xmlElement * root;
+ xmlElement * current;
+
 
 
 
@@ -152,13 +153,13 @@ xmlElement * current;
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-#line 19 "xml.y"
+#line 20 "xml.y"
 {
    char * s;
    ElementName * en;  /* le nom d'un element avec son namespace */
 }
 /* Line 193 of yacc.c.  */
-#line 162 "xml.tab.c"
+#line 163 "xml.tab.c"
 	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
@@ -171,7 +172,7 @@ typedef union YYSTYPE
 
 
 /* Line 216 of yacc.c.  */
-#line 175 "xml.tab.c"
+#line 176 "xml.tab.c"
 
 #ifdef short
 # undef short
@@ -462,9 +463,9 @@ static const yytype_int8 yyrhs[] =
 /* YYRLINE[YYN] -- source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    31,    31,    34,    35,    38,    42,    43,    47,    51,
-      54,    69,    85,    86,    89,    96,   105,   109,   115,   116,
-     119,   124,   125,   126
+       0,    32,    32,    35,    36,    39,    43,    44,    48,    52,
+      55,    70,    86,    87,    90,    97,   106,   110,   116,   117,
+     120,   125,   126,   127
 };
 #endif
 
@@ -1387,12 +1388,12 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 31 "xml.y"
+#line 32 "xml.y"
     {current = NULL;}
     break;
 
   case 10:
-#line 55 "xml.y"
+#line 56 "xml.y"
     {
  			if (current==NULL)
  		  	{
@@ -1409,7 +1410,7 @@ yyreduce:
     break;
 
   case 11:
-#line 70 "xml.y"
+#line 71 "xml.y"
     {
  			if (current==NULL)
  		  	{
@@ -1426,7 +1427,7 @@ yyreduce:
     break;
 
   case 14:
-#line 90 "xml.y"
+#line 91 "xml.y"
     {
  			attribute * newAtt = new attribute;
  			newAtt->id = (yyvsp[(1) - (3)].s);
@@ -1436,7 +1437,7 @@ yyreduce:
     break;
 
   case 15:
-#line 97 "xml.y"
+#line 98 "xml.y"
     {
 			attribute * newAtt = new attribute;
 			newAtt->id = (yyvsp[(1) - (3)].s);
@@ -1446,21 +1447,21 @@ yyreduce:
     break;
 
   case 16:
-#line 106 "xml.y"
+#line 107 "xml.y"
     {
  			current=current->getParent();
  		;}
     break;
 
   case 17:
-#line 110 "xml.y"
+#line 111 "xml.y"
     {
  			current=current->getParent();
  		;}
     break;
 
   case 20:
-#line 120 "xml.y"
+#line 121 "xml.y"
     {
  			xmlText * newContent = new xmlText((yyvsp[(2) - (2)].s));
  			current->addXmlNode(newContent);
@@ -1469,7 +1470,7 @@ yyreduce:
 
 
 /* Line 1267 of yacc.c.  */
-#line 1473 "xml.tab.c"
+#line 1474 "xml.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1683,7 +1684,7 @@ yyreturn:
 }
 
 
-#line 128 "xml.y"
+#line 129 "xml.y"
 
 
 /*int main(int argc, char **argv)

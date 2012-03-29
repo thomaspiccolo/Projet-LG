@@ -137,7 +137,7 @@ xmlElement * xmlElement::getElementByFullName(string elName)
 		}
 		else
 		{
-			xmlElement* result = getElementByFullName(name);
+			xmlElement* result = childElement[i]->getElementByFullName(name);
 			if (result != NULL)
 				return result;
 		}

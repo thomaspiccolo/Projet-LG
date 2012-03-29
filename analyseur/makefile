@@ -4,7 +4,7 @@ analyse: *.l *.y makefile
 
 	flex  -Pxml xml.l
 	bison -pxml  --debug --verbose --defines=xml.tab.h xml.y
-	
+		
 	g++ -g -Wall -Wextra -DDTDDEBUG=1 -DXMLDEBUG=1 -o analyse  *.c *.cpp 
 	
 clean:

@@ -10,8 +10,9 @@ int xmlwrap(void);
 void xmlerror(char *msg);
 int xmllex(void);
 
-xmlElement * root;
-xmlElement * current;
+ xmlElement * root;
+ xmlElement * current;
+
 
 %}
 
