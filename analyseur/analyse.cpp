@@ -79,7 +79,15 @@ int main(int argc, char **argv)
 	xmlTree->display();
 	printf("======================================================\n");
 	
-	find(xmlTree->getChildElement(0),xslTree);	
+	xmlElement * htmlOutput = find(xmlTree,xslTree);	
+	printf("htmlOutput======================================================\n");
+	printf("======================================================\n");
+	htmlOutput->display();
+	
 	xslTree->display();	
-  return 0;
+	
+	//= xmlTree->copy();
+	
+	
+	return 0;
 }

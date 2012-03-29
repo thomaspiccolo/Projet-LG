@@ -23,7 +23,6 @@ xmlElement * find (xmlElement* elNode,  xmlElement* xslRoot)
 				{
 					elXSLTemplateCpy = elCurrent->copy();
 					xmlElement* elApplyTemplates = elXSLTemplateCpy->getElementByFullName("xsl:apply-templates");
-					int i = 0;
 					if (elApplyTemplates!= NULL)
 					{
 							transform(elNode,elXSLTemplateCpy,elApplyTemplates );
@@ -35,30 +34,37 @@ xmlElement * find (xmlElement* elNode,  xmlElement* xslRoot)
 		}
 		i++;	
 	}
+	return NULL;
 }
 
 
 void transform (xmlElement*& elXMLNode, xmlElement * elXSLTemplate , xmlElement* elApplyTemplates)
 {
-	int itNode = 0;
-	int itElement = 0;
+	vector<xmlNode*>::iterator itNode;
+	vector<xmlElement*>::iterator itElement ;
 	bool find = false;
+	
 	
 	elXMLNode->setParent(elApplyTemplates->getParent());
 	xmlElement * elATParent = elApplyTemplates->getParent(); //elATParent = elApplyTemplatesParent
+	itNode =  elATParent->getAllChildNode().begin();
+	itElement = elATParent->getAllChildElement().begin();
 
-	while (find == false && itNode < elATParent->getAllChildNode().size())
+	/* TO DO : Modifier les insertion pour supprimer les noeux applytemplate et rapport par l'utilisation de insert de vector
+	*/
+	while (find == false && itNode != elATParent->getAllChildNode().end())
 	{
-		if (elATParent->getChildNode(itNode) == elApplyTemplates)
+		if (*itNode == elApplyTemplates)
 		{
-			elATParent->getAllChildNodeVector()->at(itNode) = elXMLNode;
+			cout << "Trace" << ((xmlElement*)(*itNode))->getFullName() << endl;
+			elATParent->getAllChildNodeVector()->insert(itNode,elXMLNode->getAllChildNodeVector()->begin(),elXMLNode->getAllChildNodeVector()->end());
 			find = true;
 		}
 		else
-			itNode++;
+			++itNode;
 	}
 	find = false;
-	while (find == false && itElement < elATParent->getAllChildElement().size())
+/*	while (find == false && itElement < elATParent->getAllChildElement().end())
 	{
 		if (elATParent->getChildElement(itElement) == elApplyTemplates)
 		{
@@ -66,7 +72,9 @@ void transform (xmlElement*& elXMLNode, xmlElement * elXSLTemplate , xmlElement*
 			find = true;
 		}
 		else
-			itElement++;
-	}	
+			++itElement;
+	}	*/
+	elATParent->display();
+	elXMLNode->display();
 }
 
