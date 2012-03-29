@@ -76,18 +76,17 @@ int main(int argc, char **argv)
   	else  printf("XSL Parse ended with success\n", err);
 	xslTree = root;
 
-	xmlTree->display();
 	printf("======================================================\n");
 	
 	xmlElement * htmlOutput = find(xmlTree,xslTree);	
-	printf("htmlOutput======================================================\n");
+	/*printf("htmlOutput======================================================\n");
 	printf("======================================================\n");
 	htmlOutput->display();
 	
 	xslTree->display();	
 	
 	//= xmlTree->copy();
-	
+	*/
 	
 	return 0;
 }

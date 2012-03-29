@@ -62,6 +62,11 @@ int xmlElement::getChildElementCount()
 	return childElementCount;
 }
 
+int xmlElement::getChildNodeCount()
+{
+	return childNodeCount;
+}
+
 vector<xmlNode*> xmlElement::getAllChildNode()
 {	
 	return childNode;
@@ -111,11 +116,25 @@ void xmlElement::addAttribute(attribute* elAtt)
 void xmlElement::addXmlNode(xmlNode * elNode)
 {
 	childNode.push_back(elNode);
+	childNodeCount++;
 	xmlElement * elElement = dynamic_cast<xmlElement*>(elNode);
 	if (elElement != 0)
 	{
 		childElement.push_back(elElement);
 		childElementCount++;
+		elElement->setParent(this);
+	}
+}
+
+void xmlElement::removeXmlNode()
+{
+	xmlElement * elElement = dynamic_cast<xmlElement*>(childNode[childNode.size()-1]);
+	childNode.pop_back();
+	childNodeCount--;
+	if (elElement != 0)
+	{
+		childElement.pop_back();
+		childElementCount--;
 		elElement->setParent(this);
 	}
 }
@@ -149,7 +168,6 @@ xmlElement * xmlElement::getElementByFullName(string elName)
 		else
 		{
 			xmlElement* result = childElement[i]->getElementByFullName(elName);
-			cout << "==============\n\n=========" << childElement[i]->getFullName() << endl;
 			if (result != NULL)
 				return result;
 		}
@@ -160,35 +178,25 @@ xmlElement * xmlElement::getElementByFullName(string elName)
 
 xmlElement * xmlElement::copy ()
 {
-	cout << "XML ELEMENT COPY 1!!!" << endl;
 	xmlElement * newEltResult;
-	cout << name << endl;
 	if (ns == "")
 		newEltResult = new xmlElement(name);
 	else 
 		newEltResult = new xmlElement(name,ns);
-	cout << "XML ELEMENT COPY 2!!" << endl;
 	for (int i = 0 ; i < childNode.size() ; i++)
 	{
-		cout << "XML ELEMENT COPY 3!!" << endl;
 		xmlNode * tempChild = childNode[i];
 		xmlElement * tempElement =  dynamic_cast<xmlElement*>(tempChild);
-		cout << "XML ELEMENT COPY 4!!" << endl;
 		if(tempElement != NULL)
 		{
-			cout << "XML ELEMENT COPY 5!!" << endl;
 			newEltResult->addXmlNode(tempElement->copy());
 		}	
 		else
 		{
-			cout << "XML ELEMENT COPY 6!!" << endl;	
 			xmlText * tempText =  new xmlText(((xmlText*)tempChild)->getText());
 			newEltResult->addXmlNode(tempText);
 		}
 	}
-	cout << "XML ELEMENT COPY !!!" << endl;
-	newEltResult->display();
-	cout << "END XML ELEMENT COPY !!!" << endl;
 	return newEltResult;
 }
 

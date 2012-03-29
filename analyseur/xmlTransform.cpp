@@ -40,41 +40,52 @@ xmlElement * find (xmlElement* elNode,  xmlElement* xslRoot)
 
 void transform (xmlElement*& elXMLNode, xmlElement * elXSLTemplate , xmlElement* elApplyTemplates)
 {
-	vector<xmlNode*>::iterator itNode;
-	vector<xmlElement*>::iterator itElement ;
+	int itNode = 0;
 	bool find = false;
 	
 	
 	elXMLNode->setParent(elApplyTemplates->getParent());
 	xmlElement * elATParent = elApplyTemplates->getParent(); //elATParent = elApplyTemplatesParent
-	itNode =  elATParent->getAllChildNode().begin();
-	itElement = elATParent->getAllChildElement().begin();
 
 	/* TO DO : Modifier les insertion pour supprimer les noeux applytemplate et rapport par l'utilisation de insert de vector
 	*/
-	while (find == false && itNode != elATParent->getAllChildNode().end())
+	while (find == false && itNode < elATParent->getAllChildNode().size())
 	{
-		if (*itNode == elApplyTemplates)
+		if (elATParent->getChildNode(itNode) == elApplyTemplates)
 		{
-			cout << "Trace" << ((xmlElement*)(*itNode))->getFullName() << endl;
-			elATParent->getAllChildNodeVector()->insert(itNode,elXMLNode->getAllChildNodeVector()->begin(),elXMLNode->getAllChildNodeVector()->end());
+			int size = elXMLNode->getChildNodeCount();
+			vector<xmlNode*> tempVector;
+			while (elATParent->getChildNode(elATParent->getAllChildNode().size()) != elApplyTemplates )
+			{
+				if (dynamic_cast<xmlElement*>(elATParent->getChildNode(elATParent->getAllChildNode().size()-1)))
+				{	
+					xmlElement * temp = ((xmlElement*)elATParent->getChildNode(elATParent->getAllChildNode().size()-1))->copy();
+					elATParent->removeXmlNode();
+					tempVector.push_back(temp);
+				}
+				else
+				{
+					xmlText* temp = new xmlText(((xmlText*)elATParent->getChildNode(elATParent->getAllChildNode().size()-1))->getText());
+					tempVector.push_back(temp);
+					elATParent->removeXmlNode();
+
+				}						
+			}
+			elATParent->removeXmlNode(); // On retire le ApplyTemplates
+			for (int i = 0 ; i <  size ; i++)
+			{
+				xmlNode* temp = ((xmlNode*)((xmlElement*)elXMLNode->getChildNode(i))->copy());
+				elATParent->addXmlNode(temp);
+			}
+			for (int i = 0 ; i < tempVector.size() ; i++ )
+			{
+				elATParent->addXmlNode(tempVector[i]);
+			}
 			find = true;
 		}
 		else
-			++itNode;
+			itNode++;
 	}
 	find = false;
-/*	while (find == false && itElement < elATParent->getAllChildElement().end())
-	{
-		if (elATParent->getChildElement(itElement) == elApplyTemplates)
-		{
-			elATParent->getAllChildElementVector()->at(itElement) = elXMLNode;
-			find = true;
-		}
-		else
-			++itElement;
-	}	*/
-	elATParent->display();
-	elXMLNode->display();
 }
 

@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include "xmlElement.h"
+#include "xmlText.h"
 
 using namespace std;
 
