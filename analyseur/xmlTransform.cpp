@@ -2,11 +2,13 @@
 #include <string>
 
 
-void find (xmlElement* elNode,  xmlElement* xslRoot)
+xmlElement * find (xmlElement* elNode,  xmlElement* xslRoot)
 {
 	bool find = false;
 	int i = 0 ;
 	xmlElement* elCurrent;
+	xmlElement * elXSLTemplateCpy;
+
 	while ((i < xslRoot->getChildElementCount())||(find == false))
 	{
 		elCurrent = xslRoot->getChildElement(i);
@@ -19,15 +21,14 @@ void find (xmlElement* elNode,  xmlElement* xslRoot)
 				currentAtt = elCurrent->getAttribute(j);
 				if ((currentAtt->id == "match") && (currentAtt->value == elNode->getName()))
 				{
-					elCurrent->display();
-					xmlElement* elApplyTemplates = elCurrent->getElementByFullName("xsl:apply-templates");
-					xmlElement* elNodeParent = elNode->getParent();
+					elXSLTemplateCpy = elCurrent->copy();
+					xmlElement* elApplyTemplates = elXSLTemplateCpy->getElementByFullName("xsl:apply-templates");
 					int i = 0;
 					if (elApplyTemplates!= NULL)
 					{
-							transform(elNode,elCurrent,elApplyTemplates );
+							transform(elNode,elXSLTemplateCpy,elApplyTemplates );
 							find = true;
-							break;
+							return elXSLTemplateCpy;
 					}					
 				}
 			}
@@ -67,6 +68,5 @@ void transform (xmlElement*& elXMLNode, xmlElement * elXSLTemplate , xmlElement*
 		else
 			itElement++;
 	}	
-	xmlElement * test = elXSLTemplate->copy();
 }
 

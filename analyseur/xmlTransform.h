@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void find(xmlElement* elNode, xmlElement* xslRoot);
+xmlElement * find(xmlElement* elNode, xmlElement* xslRoot);
 
 void transform (xmlElement*& elXMLNode, xmlElement * elXSLTemplate , xmlElement* elApplyTemplates);
 
