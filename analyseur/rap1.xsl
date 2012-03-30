@@ -33,10 +33,6 @@
 	</p>
 </xsl:template>
 
-<xsl:template match="chaptire">
-	<xsl:apply-templates/>
-</xsl:template>
-
 <xsl:template match="section">
 	<xsl:apply-templates/>
 </xsl:template>

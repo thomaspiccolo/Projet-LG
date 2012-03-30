@@ -10,6 +10,6 @@ using namespace std;
 
 xmlElement * find(xmlElement* elNode, xmlElement* xslRoot);
 
-void transform (xmlElement*& elXMLNode, xmlElement * elXSLTemplate , xmlElement* elApplyTemplates);
+void transform (xmlElement*& elXMLNode, xmlElement * elXSLTemplate , xmlElement* elApplyTemplates, xmlElement * xslRoot);
 
 #endif
