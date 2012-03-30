@@ -1,0 +1,15 @@
+<!ELEMENT br EMPTY>
+<!ELEMENT container ANY>
+<!ELEMENT titre(#PCDATA)>
+<!ELEMENT temps(date)>
+<!ELEMENT auteur(nom, prenom)>
+<!ELEMENT rapport(titre, auteur+, resume, chapitre*)>
+<!ELEMENT rapport2(titre, auteur+, resume, chapitre*)+>
+
+<!ELEMENT chapitre(paragraphe+|commentaire)>
+<!ELEMENT chapitre2(paragraphe+|commentaire)?>
+<!ELEMENT chapitre3(#PCDATA |paragraphe|commentaire)*>
+
+<!ELEMENT ele01(ele02+, ele03?, (ele04, ele05*)+, (ele06| ele07))+>
+
+<!ATTLIST rapport titre CDATA #IMPLIED>

@@ -225,6 +225,15 @@ int docparse(char* fichierXml, int typeAppel)
 
 	if(typeAppel==XMLONLYPARSE)
 	{
+			cout << "========================================" << endl;
+			cout << "=========Affichage du XML===============" << endl;
+			cout << "========================================" << endl;
+			xmlTree->display();
+			cout << "========================================" << endl;
+			cout << "=========Fin de l'Affichage=============" << endl;
+			cout << "========================================" << endl;
+			getchar();
+
 		cout << "========================================" << endl;
 		cout << "=========Fin de l'Analyse===============" << endl;
 		cout << "========================================" << endl;

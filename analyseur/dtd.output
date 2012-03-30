@@ -1,0 +1,853 @@
+State 6 conflicts: 1 shift/reduce
+State 18 conflicts: 1 reduce/reduce
+State 19 conflicts: 1 reduce/reduce
+State 23 conflicts: 1 shift/reduce
+
+
+Grammar
+
+    0 $accept: main $end
+
+    1 main: dtd_list_opt
+
+    2 dtd_list_opt: dtd_list_opt ATTLIST IDENT att_definition_opt CLOSE
+    3             | dtd_list_opt ELEMENT IDENT element_content CLOSE
+    4             | /* empty */
+
+    5 att_definition_opt: att_definition_opt attribute
+    6                   | /* empty */
+
+    7 attribute: IDENT att_type default_declaration
+
+    8 default_declaration: DECLARATION
+    9                    | STRING
+   10                    | FIXED STRING
+
+   11 att_type: CDATA
+   12         | TOKENTYPE
+   13         | enumerate
+
+   14 element_content: children
+   15                | cp
+   16                | choice
+   17                | seq
+   18                | mixed
+   19                | emptyany
+   20                | /* empty */
+
+   21 emptyany: EMPTY
+   22         | ANY
+
+   23 mixed: OPENPAR mixed_content CLOSEPAR AST
+   24      | OPENPAR PCDATA CLOSEPAR
+
+   25 mixed_content: PCDATA mixed_content_opt
+
+   26 mixed_content_opt: PIPE list_noms
+   27                  | /* empty */
+
+   28 list_noms: IDENT mixed_content_opt
+
+   29 children: choice_card
+   30         | seq_card
+
+   31 choice_card: choice card_opt
+
+   32 seq_card: seq card_opt
+
+   33 card_opt: QMARK
+   34         | PLUS
+   35         | AST
+   36         | /* empty */
+
+   37 choice: OPENPAR choice_list_plus CLOSEPAR
+
+   38 choice_list: choice_list PIPE cp
+   39            | cp
+
+   40 choice_list_plus: cp PIPE choice_list
+
+   41 seq: OPENPAR seq_list CLOSEPAR
+
+   42 seq_list: seq_list COMMA cp
+   43         | cp
+
+   44 cp: IDENT card_opt
+
+   45 @1: /* empty */
+
+   46 cp: @1 children
+
+   47 enumerate: OPENPAR enum_list_plus CLOSEPAR
+
+   48 enum_list_plus: enum_list PIPE item_enum
+
+   49 enum_list: item_enum
+   50          | enum_list PIPE item_enum
+
+   51 item_enum: IDENT
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+error (256)
+ELEMENT (258) 3
+ATTLIST (259) 2
+CLOSE (260) 2 3
+OPENPAR (261) 23 24 37 41 47
+CLOSEPAR (262) 23 24 37 41 47
+COMMA (263) 42
+PIPE (264) 26 38 40 48 50
+FIXED (265) 10
+EMPTY (266) 21
+ANY (267) 22
+PCDATA (268) 24 25
+AST (269) 23 35
+QMARK (270) 33
+PLUS (271) 34
+CDATA (272) 11
+IDENT (273) 2 3 7 28 44 51
+TOKENTYPE (274) 12
+DECLARATION (275) 8
+STRING (276) 9 10
+
+
+Nonterminals, with rules where they appear
+
+$accept (22)
+    on left: 0
+main (23)
+    on left: 1, on right: 0
+dtd_list_opt (24)
+    on left: 2 3 4, on right: 1 2 3
+att_definition_opt (25)
+    on left: 5 6, on right: 2 5
+attribute (26)
+    on left: 7, on right: 5
+default_declaration (27)
+    on left: 8 9 10, on right: 7
+att_type (28)
+    on left: 11 12 13, on right: 7
+element_content (29)
+    on left: 14 15 16 17 18 19 20, on right: 3
+emptyany (30)
+    on left: 21 22, on right: 19
+mixed (31)
+    on left: 23 24, on right: 18
+mixed_content (32)
+    on left: 25, on right: 23
+mixed_content_opt (33)
+    on left: 26 27, on right: 25 28
+list_noms (34)
+    on left: 28, on right: 26
+children (35)
+    on left: 29 30, on right: 14 46
+choice_card (36)
+    on left: 31, on right: 29
+seq_card (37)
+    on left: 32, on right: 30
+card_opt (38)
+    on left: 33 34 35 36, on right: 31 32 44
+choice (39)
+    on left: 37, on right: 16 31
+choice_list (40)
+    on left: 38 39, on right: 38 40
+choice_list_plus (41)
+    on left: 40, on right: 37
+seq (42)
+    on left: 41, on right: 17 32
+seq_list (43)
+    on left: 42 43, on right: 41 42
+cp (44)
+    on left: 44 46, on right: 15 38 39 40 42 43
+@1 (45)
+    on left: 45, on right: 46
+enumerate (46)
+    on left: 47, on right: 13
+enum_list_plus (47)
+    on left: 48, on right: 47
+enum_list (48)
+    on left: 49 50, on right: 48 50
+item_enum (49)
+    on left: 51, on right: 48 49 50
+
+
+state 0
+
+    0 $accept: . main $end
+
+    $default  reduce using rule 4 (dtd_list_opt)
+
+    main          go to state 1
+    dtd_list_opt  go to state 2
+
+
+state 1
+
+    0 $accept: main . $end
+
+    $end  shift, and go to state 3
+
+
+state 2
+
+    1 main: dtd_list_opt .
+    2 dtd_list_opt: dtd_list_opt . ATTLIST IDENT att_definition_opt CLOSE
+    3             | dtd_list_opt . ELEMENT IDENT element_content CLOSE
+
+    ELEMENT  shift, and go to state 4
+    ATTLIST  shift, and go to state 5
+
+    $default  reduce using rule 1 (main)
+
+
+state 3
+
+    0 $accept: main $end .
+
+    $default  accept
+
+
+state 4
+
+    3 dtd_list_opt: dtd_list_opt ELEMENT . IDENT element_content CLOSE
+
+    IDENT  shift, and go to state 6
+
+
+state 5
+
+    2 dtd_list_opt: dtd_list_opt ATTLIST . IDENT att_definition_opt CLOSE
+
+    IDENT  shift, and go to state 7
+
+
+state 6
+
+    3 dtd_list_opt: dtd_list_opt ELEMENT IDENT . element_content CLOSE
+
+    OPENPAR  shift, and go to state 8
+    EMPTY    shift, and go to state 9
+    ANY      shift, and go to state 10
+    IDENT    shift, and go to state 11
+
+    OPENPAR   [reduce using rule 45 (@1)]
+    $default  reduce using rule 20 (element_content)
+
+    element_content  go to state 12
+    emptyany         go to state 13
+    mixed            go to state 14
+    children         go to state 15
+    choice_card      go to state 16
+    seq_card         go to state 17
+    choice           go to state 18
+    seq              go to state 19
+    cp               go to state 20
+    @1               go to state 21
+
+
+state 7
+
+    2 dtd_list_opt: dtd_list_opt ATTLIST IDENT . att_definition_opt CLOSE
+
+    $default  reduce using rule 6 (att_definition_opt)
+
+    att_definition_opt  go to state 22
+
+
+state 8
+
+   23 mixed: OPENPAR . mixed_content CLOSEPAR AST
+   24      | OPENPAR . PCDATA CLOSEPAR
+   37 choice: OPENPAR . choice_list_plus CLOSEPAR
+   41 seq: OPENPAR . seq_list CLOSEPAR
+
+    PCDATA  shift, and go to state 23
+    IDENT   shift, and go to state 11
+
+    $default  reduce using rule 45 (@1)
+
+    mixed_content     go to state 24
+    choice_list_plus  go to state 25
+    seq_list          go to state 26
+    cp                go to state 27
+    @1                go to state 21
+
+
+state 9
+
+   21 emptyany: EMPTY .
+
+    $default  reduce using rule 21 (emptyany)
+
+
+state 10
+
+   22 emptyany: ANY .
+
+    $default  reduce using rule 22 (emptyany)
+
+
+state 11
+
+   44 cp: IDENT . card_opt
+
+    AST    shift, and go to state 28
+    QMARK  shift, and go to state 29
+    PLUS   shift, and go to state 30
+
+    $default  reduce using rule 36 (card_opt)
+
+    card_opt  go to state 31
+
+
+state 12
+
+    3 dtd_list_opt: dtd_list_opt ELEMENT IDENT element_content . CLOSE
+
+    CLOSE  shift, and go to state 32
+
+
+state 13
+
+   19 element_content: emptyany .
+
+    $default  reduce using rule 19 (element_content)
+
+
+state 14
+
+   18 element_content: mixed .
+
+    $default  reduce using rule 18 (element_content)
+
+
+state 15
+
+   14 element_content: children .
+
+    $default  reduce using rule 14 (element_content)
+
+
+state 16
+
+   29 children: choice_card .
+
+    $default  reduce using rule 29 (children)
+
+
+state 17
+
+   30 children: seq_card .
+
+    $default  reduce using rule 30 (children)
+
+
+state 18
+
+   16 element_content: choice .
+   31 choice_card: choice . card_opt
+
+    AST    shift, and go to state 28
+    QMARK  shift, and go to state 29
+    PLUS   shift, and go to state 30
+
+    CLOSE     reduce using rule 16 (element_content)
+    CLOSE     [reduce using rule 36 (card_opt)]
+    $default  reduce using rule 16 (element_content)
+
+    card_opt  go to state 33
+
+
+state 19
+
+   17 element_content: seq .
+   32 seq_card: seq . card_opt
+
+    AST    shift, and go to state 28
+    QMARK  shift, and go to state 29
+    PLUS   shift, and go to state 30
+
+    CLOSE     reduce using rule 17 (element_content)
+    CLOSE     [reduce using rule 36 (card_opt)]
+    $default  reduce using rule 17 (element_content)
+
+    card_opt  go to state 34
+
+
+state 20
+
+   15 element_content: cp .
+
+    $default  reduce using rule 15 (element_content)
+
+
+state 21
+
+   46 cp: @1 . children
+
+    OPENPAR  shift, and go to state 35
+
+    children     go to state 36
+    choice_card  go to state 16
+    seq_card     go to state 17
+    choice       go to state 37
+    seq          go to state 38
+
+
+state 22
+
+    2 dtd_list_opt: dtd_list_opt ATTLIST IDENT att_definition_opt . CLOSE
+    5 att_definition_opt: att_definition_opt . attribute
+
+    CLOSE  shift, and go to state 39
+    IDENT  shift, and go to state 40
+
+    attribute  go to state 41
+
+
+state 23
+
+   24 mixed: OPENPAR PCDATA . CLOSEPAR
+   25 mixed_content: PCDATA . mixed_content_opt
+
+    CLOSEPAR  shift, and go to state 42
+    PIPE      shift, and go to state 43
+
+    CLOSEPAR  [reduce using rule 27 (mixed_content_opt)]
+
+    mixed_content_opt  go to state 44
+
+
+state 24
+
+   23 mixed: OPENPAR mixed_content . CLOSEPAR AST
+
+    CLOSEPAR  shift, and go to state 45
+
+
+state 25
+
+   37 choice: OPENPAR choice_list_plus . CLOSEPAR
+
+    CLOSEPAR  shift, and go to state 46
+
+
+state 26
+
+   41 seq: OPENPAR seq_list . CLOSEPAR
+   42 seq_list: seq_list . COMMA cp
+
+    CLOSEPAR  shift, and go to state 47
+    COMMA     shift, and go to state 48
+
+
+state 27
+
+   40 choice_list_plus: cp . PIPE choice_list
+   43 seq_list: cp .
+
+    PIPE  shift, and go to state 49
+
+    $default  reduce using rule 43 (seq_list)
+
+
+state 28
+
+   35 card_opt: AST .
+
+    $default  reduce using rule 35 (card_opt)
+
+
+state 29
+
+   33 card_opt: QMARK .
+
+    $default  reduce using rule 33 (card_opt)
+
+
+state 30
+
+   34 card_opt: PLUS .
+
+    $default  reduce using rule 34 (card_opt)
+
+
+state 31
+
+   44 cp: IDENT card_opt .
+
+    $default  reduce using rule 44 (cp)
+
+
+state 32
+
+    3 dtd_list_opt: dtd_list_opt ELEMENT IDENT element_content CLOSE .
+
+    $default  reduce using rule 3 (dtd_list_opt)
+
+
+state 33
+
+   31 choice_card: choice card_opt .
+
+    $default  reduce using rule 31 (choice_card)
+
+
+state 34
+
+   32 seq_card: seq card_opt .
+
+    $default  reduce using rule 32 (seq_card)
+
+
+state 35
+
+   37 choice: OPENPAR . choice_list_plus CLOSEPAR
+   41 seq: OPENPAR . seq_list CLOSEPAR
+
+    IDENT  shift, and go to state 11
+
+    $default  reduce using rule 45 (@1)
+
+    choice_list_plus  go to state 25
+    seq_list          go to state 26
+    cp                go to state 27
+    @1                go to state 21
+
+
+state 36
+
+   46 cp: @1 children .
+
+    $default  reduce using rule 46 (cp)
+
+
+state 37
+
+   31 choice_card: choice . card_opt
+
+    AST    shift, and go to state 28
+    QMARK  shift, and go to state 29
+    PLUS   shift, and go to state 30
+
+    $default  reduce using rule 36 (card_opt)
+
+    card_opt  go to state 33
+
+
+state 38
+
+   32 seq_card: seq . card_opt
+
+    AST    shift, and go to state 28
+    QMARK  shift, and go to state 29
+    PLUS   shift, and go to state 30
+
+    $default  reduce using rule 36 (card_opt)
+
+    card_opt  go to state 34
+
+
+state 39
+
+    2 dtd_list_opt: dtd_list_opt ATTLIST IDENT att_definition_opt CLOSE .
+
+    $default  reduce using rule 2 (dtd_list_opt)
+
+
+state 40
+
+    7 attribute: IDENT . att_type default_declaration
+
+    OPENPAR    shift, and go to state 50
+    CDATA      shift, and go to state 51
+    TOKENTYPE  shift, and go to state 52
+
+    att_type   go to state 53
+    enumerate  go to state 54
+
+
+state 41
+
+    5 att_definition_opt: att_definition_opt attribute .
+
+    $default  reduce using rule 5 (att_definition_opt)
+
+
+state 42
+
+   24 mixed: OPENPAR PCDATA CLOSEPAR .
+
+    $default  reduce using rule 24 (mixed)
+
+
+state 43
+
+   26 mixed_content_opt: PIPE . list_noms
+
+    IDENT  shift, and go to state 55
+
+    list_noms  go to state 56
+
+
+state 44
+
+   25 mixed_content: PCDATA mixed_content_opt .
+
+    $default  reduce using rule 25 (mixed_content)
+
+
+state 45
+
+   23 mixed: OPENPAR mixed_content CLOSEPAR . AST
+
+    AST  shift, and go to state 57
+
+
+state 46
+
+   37 choice: OPENPAR choice_list_plus CLOSEPAR .
+
+    $default  reduce using rule 37 (choice)
+
+
+state 47
+
+   41 seq: OPENPAR seq_list CLOSEPAR .
+
+    $default  reduce using rule 41 (seq)
+
+
+state 48
+
+   42 seq_list: seq_list COMMA . cp
+
+    IDENT  shift, and go to state 11
+
+    $default  reduce using rule 45 (@1)
+
+    cp  go to state 58
+    @1  go to state 21
+
+
+state 49
+
+   40 choice_list_plus: cp PIPE . choice_list
+
+    IDENT  shift, and go to state 11
+
+    $default  reduce using rule 45 (@1)
+
+    choice_list  go to state 59
+    cp           go to state 60
+    @1           go to state 21
+
+
+state 50
+
+   47 enumerate: OPENPAR . enum_list_plus CLOSEPAR
+
+    IDENT  shift, and go to state 61
+
+    enum_list_plus  go to state 62
+    enum_list       go to state 63
+    item_enum       go to state 64
+
+
+state 51
+
+   11 att_type: CDATA .
+
+    $default  reduce using rule 11 (att_type)
+
+
+state 52
+
+   12 att_type: TOKENTYPE .
+
+    $default  reduce using rule 12 (att_type)
+
+
+state 53
+
+    7 attribute: IDENT att_type . default_declaration
+
+    FIXED        shift, and go to state 65
+    DECLARATION  shift, and go to state 66
+    STRING       shift, and go to state 67
+
+    default_declaration  go to state 68
+
+
+state 54
+
+   13 att_type: enumerate .
+
+    $default  reduce using rule 13 (att_type)
+
+
+state 55
+
+   28 list_noms: IDENT . mixed_content_opt
+
+    PIPE  shift, and go to state 43
+
+    $default  reduce using rule 27 (mixed_content_opt)
+
+    mixed_content_opt  go to state 69
+
+
+state 56
+
+   26 mixed_content_opt: PIPE list_noms .
+
+    $default  reduce using rule 26 (mixed_content_opt)
+
+
+state 57
+
+   23 mixed: OPENPAR mixed_content CLOSEPAR AST .
+
+    $default  reduce using rule 23 (mixed)
+
+
+state 58
+
+   42 seq_list: seq_list COMMA cp .
+
+    $default  reduce using rule 42 (seq_list)
+
+
+state 59
+
+   38 choice_list: choice_list . PIPE cp
+   40 choice_list_plus: cp PIPE choice_list .
+
+    PIPE  shift, and go to state 70
+
+    $default  reduce using rule 40 (choice_list_plus)
+
+
+state 60
+
+   39 choice_list: cp .
+
+    $default  reduce using rule 39 (choice_list)
+
+
+state 61
+
+   51 item_enum: IDENT .
+
+    $default  reduce using rule 51 (item_enum)
+
+
+state 62
+
+   47 enumerate: OPENPAR enum_list_plus . CLOSEPAR
+
+    CLOSEPAR  shift, and go to state 71
+
+
+state 63
+
+   48 enum_list_plus: enum_list . PIPE item_enum
+   50 enum_list: enum_list . PIPE item_enum
+
+    PIPE  shift, and go to state 72
+
+
+state 64
+
+   49 enum_list: item_enum .
+
+    $default  reduce using rule 49 (enum_list)
+
+
+state 65
+
+   10 default_declaration: FIXED . STRING
+
+    STRING  shift, and go to state 73
+
+
+state 66
+
+    8 default_declaration: DECLARATION .
+
+    $default  reduce using rule 8 (default_declaration)
+
+
+state 67
+
+    9 default_declaration: STRING .
+
+    $default  reduce using rule 9 (default_declaration)
+
+
+state 68
+
+    7 attribute: IDENT att_type default_declaration .
+
+    $default  reduce using rule 7 (attribute)
+
+
+state 69
+
+   28 list_noms: IDENT mixed_content_opt .
+
+    $default  reduce using rule 28 (list_noms)
+
+
+state 70
+
+   38 choice_list: choice_list PIPE . cp
+
+    IDENT  shift, and go to state 11
+
+    $default  reduce using rule 45 (@1)
+
+    cp  go to state 74
+    @1  go to state 21
+
+
+state 71
+
+   47 enumerate: OPENPAR enum_list_plus CLOSEPAR .
+
+    $default  reduce using rule 47 (enumerate)
+
+
+state 72
+
+   48 enum_list_plus: enum_list PIPE . item_enum
+   50 enum_list: enum_list PIPE . item_enum
+
+    IDENT  shift, and go to state 61
+
+    item_enum  go to state 75
+
+
+state 73
+
+   10 default_declaration: FIXED STRING .
+
+    $default  reduce using rule 10 (default_declaration)
+
+
+state 74
+
+   38 choice_list: choice_list PIPE cp .
+
+    $default  reduce using rule 38 (choice_list)
+
+
+state 75
+
+   48 enum_list_plus: enum_list PIPE item_enum .
+   50 enum_list: enum_list PIPE item_enum .
+
+    PIPE      reduce using rule 50 (enum_list)
+    $default  reduce using rule 48 (enum_list_plus)
