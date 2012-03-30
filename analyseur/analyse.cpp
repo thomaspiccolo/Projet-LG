@@ -182,6 +182,10 @@ void afficherResultat(int error, int attendu)
 
 int docparse(char* fichierXml, int typeAppel)
 {
+	
+	cout << "========================================" << endl;
+	cout << "=================Analyse================" << endl;
+	cout << "========================================" << endl;
 	xmlElement * xmlTree;
 	xmlElement * xslTree;
 	char nomFicXml[40];
@@ -195,6 +199,9 @@ int docparse(char* fichierXml, int typeAppel)
 	fid = fopen(nomFicXml, "r");
 	if (!fid){
 		printf("Erreur d'ouverture du fichier XML\n");
+		cout << "========================================" << endl;
+		cout << "=========Fin de l'Analyse===============" << endl;
+		cout << "========================================" << endl;
 		return -1;
 	}
 	xmlin = fid;
@@ -204,6 +211,9 @@ int docparse(char* fichierXml, int typeAppel)
 	if (err != 0) 
 	{
 		printf("XML Parse ended with %d error(s)\n", err);
+		cout << "========================================" << endl;
+		cout << "=========Fin de l'Analyse===============" << endl;
+		cout << "========================================" << endl;
 		return XMLERROR;
 	}
   	else  printf("XML Parse ended with success\n", err);
@@ -211,6 +221,9 @@ int docparse(char* fichierXml, int typeAppel)
 
 	if(typeAppel==XMLONLYPARSE)
 	{
+		cout << "========================================" << endl;
+		cout << "=========Fin de l'Analyse===============" << endl;
+		cout << "========================================" << endl;
 		return NOERROR;
 	}
 	
@@ -220,6 +233,9 @@ int docparse(char* fichierXml, int typeAppel)
 	fid = fopen(nomFicDtd, "r");
 	if (!fid){
 		printf("Erreur d'ouverture du fichier DTD\n");
+		cout << "========================================" << endl;
+		cout << "=========Fin de l'Analyse===============" << endl;
+		cout << "========================================" << endl;
 		return -1;
 	}
 	dtdin = fid;
@@ -230,6 +246,9 @@ int docparse(char* fichierXml, int typeAppel)
 	
 	if(typeAppel==XMLDTDPARSE)
 	{
+		cout << "========================================" << endl;
+		cout << "=========Fin de l'Analyse===============" << endl;
+		cout << "========================================" << endl;
 		return NOERROR;
 	}
 	
@@ -237,7 +256,10 @@ int docparse(char* fichierXml, int typeAppel)
 	fid = fopen(nomFicXsl, "r");
 	if (!fid){
 		printf("Erreur d'ouverture du fichier XSL\n");
-		return -1;
+		cout << "========================================" << endl;
+		cout << "=========Fin de l'Analyse===============" << endl;
+		cout << "========================================" << endl;
+		return -1;	
 	}
 	xmlin = fid;
 	//xsldebug = 1; // pour enlever l'affichage de l'exécution du parser, commenter cette ligne
@@ -247,14 +269,17 @@ int docparse(char* fichierXml, int typeAppel)
   	else  printf("XSL Parse ended with success\n", err);
 	xslTree = root;
 
-	xslTree->display();
-
 	xmlElement * htmlOutput = find(xmlTree,xslTree);	
 	ofstream myFile;
   	myFile.open ("outputHtml.html", ios::out);
   	myFile << htmlOutput->getChildElement(0)->write();
   	myFile.close();
 	cout << "Ecriture de la sortie HTML effectuée" << endl;
+
+
+	cout << "========================================" << endl;
+	cout << "=========Fin de l'Analyse===============" << endl;
+	cout << "========================================" << endl;
 
 	return NOERROR;
 }

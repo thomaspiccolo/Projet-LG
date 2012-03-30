@@ -8,8 +8,10 @@
 
 using namespace std;
 
+//Cherche si l'élement à un template
 xmlElement * find(xmlElement* elNode, xmlElement* xslRoot);
 
-void transform (xmlElement*& elXMLNode, xmlElement * elXSLTemplate , xmlElement* elApplyTemplates, xmlElement * xslRoot);
+//Applique le template à elXMLNode
+void transform (xmlElement*& elXMLNode , xmlElement* elApplyTemplates, xmlElement * xslRoot);
 
 #endif
