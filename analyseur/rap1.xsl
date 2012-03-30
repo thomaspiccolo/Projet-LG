@@ -6,10 +6,9 @@
 		<title>Title: TP Analyseur XML</title>
 	</head>
 	<body>
-		<h1> Test </h1>
+		<h1> Fichier de Sortie HTML du TP Analyseur XML </h1>
 		<xsl:apply-templates/>
 		<p> Bla Bla </p>
-		sqddqfsqsdf
 	</body>
 	</html>
 </xsl:template>
