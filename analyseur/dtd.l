@@ -59,26 +59,26 @@ any "ANY"
 
 %%
 
-<INITIAL>{ws}		          { /* skip */}
-<INITIAL>{element}            { BEGIN(INSIDE); return ELEMENT; }
-<INITIAL>{attlist}            { BEGIN(INSIDE); return ATTLIST; }
-<INSIDE>{close}               { BEGIN(INITIAL); return CLOSE; }
-<INSIDE>{openpar}             { return OPENPAR; }
-<INSIDE>{closepar}{ws}?       { return CLOSEPAR; }
-<INSIDE>{comma}{ws}?          { return COMMA; }
-<INSIDE>{pipe}{ws}?           { return PIPE; }
-<INSIDE>{declaration}         { stringreturn(DECLARATION); }
-<INSIDE>{fixed}               { return FIXED; }
-<INSIDE>{ast}                 { return AST ; }
-<INSIDE>{qmark}               { return QMARK ; }
-<INSIDE>{plus}                { return PLUS ; }
-<INSIDE>{empty}               { return EMPTY; }
-<INSIDE>{any}                 { return ANY; }
-<INSIDE>{pcdata}              { return PCDATA; }
-<INSIDE>{cdata}               { return CDATA; }
-<INSIDE>{string}              { stringreturn(STRING); }
-<INSIDE>{tokentype}{ws}?      { stringreturn(TOKENTYPE); }
-<INSIDE>{name}{ws}?           { stringreturn(IDENT); }
+<INITIAL>{ws}		              { /*printf(yytext);*//* skip */}
+<INITIAL>{element}            { /*printf(yytext);*/BEGIN(INSIDE); return ELEMENT; }
+<INITIAL>{attlist}            { /*printf(yytext);*/BEGIN(INSIDE); return ATTLIST; }
+<INSIDE>{close}               { /*printf(yytext);*/BEGIN(INITIAL); return CLOSE; }
+<INSIDE>{openpar}             { /*printf(yytext);*/return OPENPAR; }
+<INSIDE>{closepar}{ws}?       { /*printf(yytext);*/return CLOSEPAR; }
+<INSIDE>{comma}{ws}?          { /*printf(yytext);*/return COMMA; }
+<INSIDE>{pipe}{ws}?           { /*printf(yytext);*/return PIPE; }
+<INSIDE>{declaration}         { /*printf(yytext);*/stringreturn(DECLARATION); }
+<INSIDE>{fixed}               { /*printf(yytext);*/return FIXED; }
+<INSIDE>{ast}                 { /*printf(yytext);*/return AST ; }
+<INSIDE>{qmark}               { /*printf(yytext);*/return QMARK ; }
+<INSIDE>{plus}                { /*printf(yytext);*/return PLUS ; }
+<INSIDE>{empty}               { /*printf(yytext);*/return EMPTY; }
+<INSIDE>{any}                 { /*printf(yytext);*/return ANY; }
+<INSIDE>{pcdata}              { /*printf(yytext);*/return PCDATA; }
+<INSIDE>{cdata}               { /*printf(yytext);*/return CDATA; }
+<INSIDE>{string}              { /*printf(yytext);*/stringreturn(STRING); }
+<INSIDE>{tokentype}{ws}?      { /*printf(yytext);*/stringreturn(TOKENTYPE); }
+<INSIDE>{name}{ws}?           { /*printf(yytext);*/stringreturn(IDENT); }
 {comment}		               { /* skip comments stringreturn(COMMENT); */ }
 
 {nl}                    {printf("%s",yytext);/* skip, must be an extra one at EOF */;}

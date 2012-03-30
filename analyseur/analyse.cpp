@@ -1,6 +1,8 @@
 #include "xmlElement.h"
 #include "xmlTransform.h"
 #include "commun.h"
+#include "Dtd.h"
+
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -20,6 +22,8 @@ using namespace std;
 
 extern xmlElement * root;
 extern xmlElement * current;
+extern Dtd * unDtd;
+
 
 int xmlparse();
 int dtdparse();
@@ -50,7 +54,6 @@ int main(int argc, char **argv)
 int xmlTest()
 {
 	int error;
-	char a;
 	char typeError [10];
 
 	//Test 1
@@ -191,6 +194,7 @@ int docparse(char* fichierXml, int typeAppel)
 	char nomFicXml[40];
 	char nomFicDtd[40];
 	char nomFicXsl[40];
+	
 	FILE * fid;
 	int err;
 
@@ -227,11 +231,9 @@ int docparse(char* fichierXml, int typeAppel)
 		return NOERROR;
 	}
 	
-	
-	
 	strcpy(nomFicDtd, "./rap1.dtd");
 	fid = fopen(nomFicDtd, "r");
-	if (!fid){
+	if (!nomFicDtd){
 		printf("Erreur d'ouverture du fichier DTD\n");
 		cout << "========================================" << endl;
 		cout << "=========Fin de l'Analyse===============" << endl;
@@ -239,10 +241,12 @@ int docparse(char* fichierXml, int typeAppel)
 		return -1;
 	}
 	dtdin = fid;
-  	//dtddebug = 1; // pour désactiver l'affichage de l'exécution du parser LALR, commenter cette ligne
+  //dtddebug = 1; // pour d¨¦sactiver l'affichage de l'ex¨¦cution du parser LALR, commenter cette ligne
 	err = dtdparse();
-	if (err != 0) printf("DTD Parse ended with %d error(s)\n", err);
-        else  printf("DTD Parse ended with success\n", err);
+  	if (err != 0) 
+  		printf("DTD Parse ended with %d error(s)\n", err);
+	else  
+		printf("DTD Parse ended with success\n", err);
 	
 	if(typeAppel==XMLDTDPARSE)
 	{
@@ -268,6 +272,8 @@ int docparse(char* fichierXml, int typeAppel)
 	if (err != 0) printf("XSL Parse ended with %d error(s)\n", err);
   	else  printf("XSL Parse ended with success\n", err);
 	xslTree = root;
+	
+	
 
 	xmlElement * htmlOutput = find(xmlTree,xslTree);	
 	ofstream myFile;
@@ -277,6 +283,38 @@ int docparse(char* fichierXml, int typeAppel)
 	cout << "Ecriture de la sortie HTML effectuée" << endl;
 
 
+	cout << "========================================" << endl;
+	cout << "=========Affichage du XML===============" << endl;
+	cout << "========================================" << endl;
+	xmlTree->display();
+	cout << "========================================" << endl;
+	cout << "=========Fin de l'Affichage=============" << endl;
+	cout << "========================================" << endl;
+	getchar();
+	cout << "========================================" << endl;
+	cout << "=========Affichage du DTD===============" << endl;
+	cout << "========================================" << endl;
+	unDtd->Display();
+	cout << "========================================" << endl;
+	cout << "=========Fin de l'Affichage=============" << endl;
+	cout << "========================================" << endl;
+	getchar();
+	cout << "========================================" << endl;
+	cout << "=========Affichage du XSL===============" << endl;
+	cout << "========================================" << endl;
+	xslTree->display();
+	cout << "========================================" << endl;
+	cout << "=========Fin de l'Affichage=============" << endl;
+	cout << "========================================" << endl;
+	getchar();
+	cout << "========================================" << endl;
+	cout << "=========Affichage du HTML==============" << endl;
+	cout << "========================================" << endl;
+	htmlOutput->getChildElement(0)->display();
+	cout << "========================================" << endl;
+	cout << "=========Fin de l'Affichage=============" << endl;
+	cout << "========================================" << endl;
+	
 	cout << "========================================" << endl;
 	cout << "=========Fin de l'Analyse===============" << endl;
 	cout << "========================================" << endl;
